@@ -1,0 +1,55 @@
+
+% Hyperlenker og klikkbare lenker.
+\usepackage{hyperref}
+
+\hypersetup{
+  unicode=false,          % non-Latin characters in Acrobatâ€™s bookmarks
+  pdftoolbar=true,        % show Acrobatâ€™s toolbar?
+  pdfmenubar=false,       % show Acrobatâ€™s menu?
+  pdffitwindow=false,     % window fit to page when opened
+  pdfstartview={FitH},    % fits the width of the page to the window
+  pdftitle={My title},    % title
+  linktoc=all,            % Link all the things in the toc
+  colorlinks=true,        % false: boxed links; true: colored links
+  linkcolor=black,        % color of internal links (change box color with linkbordercolor)
+  citecolor=green,        % color of links to bibliography
+  filecolor=magenta,      % color of file links
+  urlcolor=blue           % color of external links
+}
+
+\newcommand{\linkcolor}{gray}
+\usepackage[norsk, nameinlink, noabbrev]{cleveref}
+
+\renewcommand{\thesubfigure}{\arabic{subfigure}}
+
+\crefname{mathenv}{teorem}{teoremene}
+\crefname{lemma}{lemma}{lemma}
+\crefname{corollary}{korollar}{korollar}
+\crefname{sentence}{setning}{setningene}
+\crefname{definition}{definisjon}{definisjonene}
+\crefname{equation}{likning}{likning}
+\crefname{example}{eksempel}{eksempel}
+\crefname{page}{side}{side}
+
+%Makes only the number in "equation (3.4)" colored.
+\creflabelformat{myex}{#2\textcolor{\linkcolor}{#1}#3}
+
+\creflabelformat{enumi}{#2\textcolor{\linkcolor}{#1}#3}
+
+\creflabelformat{equation}{#2(\textcolor{\linkcolor}{#1})#3}
+
+\creflabelformat{section}{#2\textcolor{\linkcolor}{#1}#3}
+
+\creflabelformat{figure}{#2\textcolor{\linkcolor}{#1}#3}
+\creflabelformat{table}{#2\textcolor{\linkcolor}{#1}#3}
+\creflabelformat{pageref}{#2\textcolor{\linkcolor}{#1}#3}
+\creflabelformat{page}{#2\textcolor{\linkcolor}{#1}#3}
+
+\crefname{problem}{oppgave}{oppgave}
+
+\crefname{deloppgaveri}{oppgave}{oppgave}
+
+\creflabelformat{problem}{#2\textcolor{\linkcolor}{#1}#3}
+\creflabelformat{deloppgaveri}{#2\textcolor{\linkcolor}{#1}#3}
+
+\setlength{\parindent}{0pt}
