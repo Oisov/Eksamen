@@ -33,6 +33,28 @@
 \usetkzobj{all}
 \usepackage{tikzpagenodes}
 
+\usetikzlibrary{external}
+    \tikzexternalize[
+        % Because I think it is good practice to give your to externalize
+        % pictures a name, I use the following option
+        only named=true,
+        prefix=img/,
+    ]
+%% -----------------------------------------------------------------------------
+%% use this block after externalizing
+%% the only thing that needs to be present is either a `\tikz ...' command
+%% or a `tikzpicture environment'
+%% (copy the file
+%%  <tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_tikzexternal.sty>
+%% into the directory of your main file (\jobname) and rename it to
+%% "tikzexternal.sty")
+%\usepackage{tikzexternal}
+%% -----------------------------------------------------------------------------
+    % store the externalized files in the following folder
+    % (this folder must already exist; otherwise you will get an error)
+    \tikzsetexternalprefix{img/}
+
+
 % Allows the top and bottom text
 \usepackage{fancyhdr}
 
