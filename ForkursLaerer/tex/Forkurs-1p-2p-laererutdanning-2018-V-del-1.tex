@@ -4,7 +4,6 @@
 %% =========================================
 
 \Del{u}
-\renewcommand{\arraystretch}{1.25}
 
 \Oppgave[2] % Oppgave 1.1
 \points*{2}
@@ -30,7 +29,7 @@ Svein hadde en nominell lønn på $\num{440 000}$ i $2008$. Konsumprisindeksen v
 $88$ dette året.
 \bigskip\noindent
 
-Bestem reallønnaa til Svein i $2008$.
+Bestem reallønna til Svein i $2008$.
 
 
 \Oppgave[3] % Oppgave 1.4
@@ -42,17 +41,16 @@ treningsrommet i løpet av en uke.
 
 \begin{table}[H]
     \centering
-    \begin{tabular}{|c | c|} \hline
-         \Rowcolor & \\ \Rowcolor
-         \multirow{-2}{*}{Antall ganger} & \multirow{-2}{*}{Antall ansatte}  \\ \hline
+    \caption{}
+    \begin{tabular}{| S[table-format=2.0] | S[table-format=2.0] |}
+         \tableHeaders{Antall ganger}{Antall ansatte}
          0 & 80 \\
          1 & 10 \\
          2 & 15 \\
          3 & 25 \\
-         4 & \phantom{0}5 \\
-         5 & 15  \\ \hline
+         4 &  5 \\
+         5 & 15 \\ \hline
     \end{tabular}
-    \caption{Caption}
     \label{tab:del-1-oppgave-1.4}
 \end{table}
 
@@ -201,21 +199,20 @@ sirkler. Tenk deg at du skal fortsette å lage figurer etter samme mønster.
 
 \begin{table}[H]
     \centering
-    \begin{tabular}{|c | c|} \hline
-         \Rowcolor & \\ \Rowcolor
-         \multirow{-2}{*}{Figur} & \multirow{-2}{*}{Antall sirkler}  \\ \hline
-         1 & \phantom{1}6 \\
-         2 & 10 \\
-         3 & 14 \\
-         4 &    \\
-         5 &    \\
-         n &    \\ \hline
-    \end{tabular}
     \caption{}
+    \begin{tabular}{| S[table-format=1.0] | S[table-format=2.0] |}
+      \tableHeaders{Figur}{Antall sirkler}
+           1   &  6 \\
+           2   & 10 \\
+           3   & 14 \\
+           4   &    \\
+           5   &    \\
+         {$n$} &    \\ \hline
+    \end{tabular}
     \label{tab:del-1-oppgave-1.8}
 \end{table}
 
 \begin{oppgaver}
-    \Item{1} Hvor mange sikler vil det være i figur nummer $100$?
+    \Item{1} Hvor mange sirkler vil det være i figur nummer $100$?
 \end{oppgaver}
 

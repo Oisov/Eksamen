@@ -152,6 +152,11 @@
 \newcolumntype{R}{>{\columncolor[HTML]{\maincolor}}r}
 
 \newcommand{\Rowcolor}{\rowcolor{\maincolor}}
+\newcommand{\headerstrut}{\vphantom{$\bigg|$}}
+\newcommand{\tableHeader}[2]{\hline%
+    \multicolumn{#1}{|c|}{ \cellcolor{\maincolor}{#2\headerstrut} }  \\ \hline
+}
+\newcommand{\tableHeaders}[2]{\hline\Rowcolor {#1\headerstrut} & {#2} \\ \hline}
 
 %%% =========================================
 %%%         Header and Footer
@@ -276,6 +281,60 @@ picture,overlay,baseline=-\baselineskip]
 }
 }
 
+%%% =========================================
+%%%         Exam information (Page 2)
+%%% =========================================
+
+\newcommand{\tinyurl}[2]{\bgroup\scriptsize \url{#1}(#2) \egroup}
+
+\newcommand{\ExamInfo}[5]{%
+  \bgroup\centering
+  \vspace*{-4cm}
+  \renewcommand{\arraystretch}{1.5}
+  \begin{tabularx}{\textwidth}{|p{3cm}|X|}\hline
+    \multicolumn{2}{|l|}{\cellcolor{\maincolor}{\Large\textbf{Prøveinformasjon\vphantom{$\Bigg|$}}} }  \\ \hline
+    \textbf{Prøvetid:}  &  #2 timer \\
+                        & Del 1 skal leveres in etter #1 timer. \\
+                        & Del 2 skal leveres inn senest etter #2 timer. \\ \hline
+    \textbf{Hjelpemidler på Del 1:} & Vanlige skrivesaker, passer, linjal med
+    centimetermål og vinkelmåler.
+    \\ \hline
+    \textbf{Hjelpemidler på Del 2:} & Alle hjelpemidler tillatt, med unntak av
+    Internett og andre verktøy som tillater kommunikasjon.
+    \\ \hline
+    \textbf{Fremgangsmåte:} & Del 1 har #3 oppgaver.   Del 2 har #4 oppgaver.\\
+                            & Der oppgaveteksten ikke sier noe annet, kan du
+                            fritt velge fremgangsmåte. Dersom oppgaven krever en
+                            bestemt løsningsmetode, kan en alternativ metode gi
+                            lav/noe uttelling. \\
+                            & Bruk av digitale verkøy som graftegner og regnerk
+                            skal dokumenteres med utskrift.
+                            \\ \hline
+    \textbf{Veiledning om vurderingen:} & Poeng i Del 1 og Del 2 er bare
+    veiledende i vurderingen. Karakteren blir fastsatt etter en samlet
+    vurdering. Det betyr at sensor vurderer i hvilken grad du
+    \begin{itemize}[label={--}]
+      \item viser regneferdigheter og matematisk forståelse
+      \item gjennomfører logiske resonnementer
+      \item ser sammenhenger i faget, er oppfinnsom og kan ta i bruk fagkunnskap
+        i nye situasjoner
+      \item kan bruke hensiktsmessige hjelpemidler
+      \item forklarer framgangsmåter og begrunner svar
+      \item skriver oversiktlig og er nøyatig med utregninger, benevninger,
+        tabeller og grafiske framstillinger
+      \item vurderer om svar er rimelige
+    \end{itemize}
+    \\ \hline
+    \textbf{Andre} & Kilder for bilder, tegninger osv.\\
+    \textbf{Opplysninger} &\vspace*{-\baselineskip} \begin{itemize}
+        #5
+      \item Andre bilder, tegninger og grafiske framstillinger:
+        Utdanningsdirektoratet.
+    \end{itemize}
+    \\ \hline
+    \end{tabularx}
+    \egroup\clearpage
+  }
 
 %%% =========================================
 %%%         Table of contents

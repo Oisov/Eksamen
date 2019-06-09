@@ -9,26 +9,31 @@
 
 \begin{table}[H]
     \centering
-    \edef\tableTitle{}
-    \begin{tabu} to \textwidth {| X[2] | Y | Y |}
-    \hline
-    \multicolumn{3}{|c|}{\cellcolor{\maincolor}} \\
-    \multicolumn{3}{|c|}{\cellcolor{\maincolor}%
-      \multirow{-2}{*}{Stortinget ved starten av perioden $2017$--$2021$}} \\ \hline
-    \Rowcolor
-        Parti                     & Antall kvinner & Antall menn \\ \hline
-        Arbeiderpartiet           &           $24$ &           $25$ \\
-        Høyre                     &           $20$ &           $25$ \\
-        Fremskrittspartiet        & $\phantom{1}7$ &           $20$ \\
-        Senterpartiet             &           $10$ & $\phantom{1}9$ \\
-        Sosialistisk Venstreparti & $\phantom{1}4$ & $\phantom{2}7$ \\
-        Kristelig Folkeparti      & $\phantom{1}2$ & $\phantom{2}6$ \\
-        Venstre                   & $\phantom{1}1$ & $\phantom{2}7$ \\
-        Miljøpartiet De Grønne    & $\phantom{1}1$ &                \\
-        Rødt                      &                & $\phantom{2}1$ \\
-    \hline
-    \end{tabu}
     \caption{}
+    \begin{tabularx}{\textwidth}{| X | *{2}{S[table-format=2.0]|}}
+        \tableHeader{3}{Stortinget ved starten av perioden $2017$--$2021$}
+    \Rowcolor
+        Parti  \headerstrut & {Antall kvinner} & {Antall menn} \\
+    \hline
+        Arbeiderpartiet           &        24        &      25 \\
+    \hline
+        Høyre                     &        20        &      25 \\
+    \hline
+        Fremskrittspartiet        &         7        &      20 \\
+    \hline
+        Senterpartiet             &        10        &       9 \\
+    \hline
+        Sosialistisk Venstreparti &         4        &       7 \\
+    \hline
+        Kristelig Folkeparti      &         2        &       6 \\
+    \hline
+        Venstre                   &         1        &       7 \\
+    \hline
+        Miljøpartiet De Grønne    &         1        &         \\
+    \hline
+        Rødt                      &                  &       1 \\
+    \hline
+    \end{tabularx}
     \label{tab:del-1-oppgave-2.1}
 \end{table}
 
@@ -165,19 +170,22 @@ tilsette mer Husvask slit at blandingsforholdet blir $1:15$.
 \Oppgave[5] % Oppgave 2.8
 \points*{5}
 
-\begin{table}[H]
+\begin{table}[htbp]
     \centering
-    \begin{tabu} to \textwidth{X Y Y[3] Y[2]}
+    \caption{}
+    \begin{tabular}{|l S[table-format=4.0] S[table-format=6.0,] l S[table-format=6.0] l|}
+    \hline \Rowcolor
+         Navn   &
+         {Fødselsår} &
+         \multicolumn{2}{c}{\vtop{\hbox{\strut Årslønn i $2017$}\hbox{\strut
+   inkludert feriepenger}}} & \multicolumn{2}{c|}{Feriepenger i $2017$} \\
     \hline
-         Navn   & Fødselsår & Årslønn i $2017$ inkludert feriepenger & Feriepenger i $2017$  \\
+         Mari   & 1970    &  734567 & kroner  &  76661 & kroner \\
+         Morten & 1998    &  430124 & kroner  &  45972 & kroner \\
+         Stein  & 1982    &  649345 & kroner  &  66540 & kroner \\
+         Inger  & 1957    &  385433 & kroner  &  40902 & kroner \\
     \hline
-         Mari   & $1970$    & $\num{734567}$ kroner  & $\num{76661}$ kroner \\
-         Morten & $1998$    & $\num{430124}$ kroner  & $\num{45972}$ kroner \\
-         Stein  & $1982$    & $\num{649345}$ kroner  & $\num{66540}$ kroner \\
-         Inger  & $1957$    & $\num{385433}$ kroner  & $\num{40902}$ kroner \\
-    \hline
-    \end{tabu}
-    \caption{Caption}
+    \end{tabular}
     \label{tab:my_label}
 \end{table}
 
