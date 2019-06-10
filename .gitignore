@@ -240,3 +240,9 @@ TSWLatexianTemp*
 
 # generated if using elsarticle.cls
 *.spl
+
+# Some weird dolphin file
+*.directory
+
+# Comment files
+comment.cut

@@ -1,0 +1,303 @@
+
+%% =========================================
+%%   DEL 2 - MED HJELPEMIDLER
+%% =========================================
+
+\Del{m}
+
+\Oppgave[2] % Oppgave 2.1
+\points*{2}
+
+Siri kjøper $\SI{1,5}{\kg}$ epler i butikk $A$. Full pris for eplene er $18$
+kroner per kilogram.  Siri får $\SI{15}{\percent}$ avslag på denne prisen.
+\medskip
+
+Eivind kjøper $\SI{1,5}{\kg}$ epler i butikk $B$. Han får $\SI{10}{\percent}$
+avslag på prisen. \medskip
+
+Hva må full pris per kilogram epler være i butikk $B$ for at Eivind skal betale
+det samme i butikk $B$ som Siri gjør i butikk $A$?
+
+
+\Oppgave[4] % Oppgave 2.2
+
+\begin{figure}[H]
+    \centering
+    \adjustbox{valign=t}{
+    \begin{subfigure}[t]{0.45\textwidth}
+    \centering
+    \resizebox{0.4\textwidth}{!}{%
+    \tikzsetnextfilename{Forkurs-1p-2p-laererutdanning-2017-V-oppgave-2-2a}
+    \begin{tikzpicture}
+        \definecolor{brownMedium}{HTML}{623d22}
+        \definecolor{brownLight}{HTML}{a78d7b}
+        \definecolor{brownDark}{HTML}{573722}
+        %stick
+        \fill[brownLight]
+        (-1,-3.17) -- (-1,-8.48) arc (-140:-39:1.2) -- (0.8,-3.16) --cycle;
+        %shadow
+        \fill[brownLight!95!black,rounded corners]
+        (0.8,-3.15) -- (0.8,-3.9) -- (0.5,-4.3) -- (-0.8,-4.3) -- (-1,-4.1) -- (-1,-3.1);
+        %ice cream
+        \fill[brownDark]
+        (-4.2,5.2) -- (-4.2,-3.1) -- (-3.96,-3.24) -- (3.26,-3.21) -- (3.86,-2.9) -- (3.84,5.8) .. controls (3.54,9.77) and (-3.4,10.05) .. cycle;
+        \fill[brownMedium]
+        (3.21,5.5) -- (3.26,-3.21) -- (-3.96,-3.24) -- (-4,5.5) .. controls (-2.2,10.1) and (2.41,9.1) .. cycle;
+    \end{tikzpicture}}
+    \end{subfigure}}%
+    ~
+    \adjustbox{valign=t}{%
+    \begin{subfigure}[t]{0.45\textwidth}
+    \centering
+    \vspace{0.4cm}
+    \tikzsetnextfilename{Forkurs-1p-2p-laererutdanning-2017-V-oppgave-2-2b}
+    \begin{tikzpicture}
+        \edef\w{2.25}
+        \draw[draw=maincolorMedium, thick] (0,\w) -- (0,0) -- (\w,0) node [midway, below]{$\SI{6}{\cm}$} -- (\w,\w) node [midway, right]{$\SI{6}{\cm}$};
+        \draw[draw=maincolorMedium, dashed, thick] (0,\w) -- (\w,\w);
+        \draw[thick, maincolorMedium] (\w,\w) arc(0:180:0.5*\w);
+    \end{tikzpicture}
+    \end{subfigure}}
+    \caption{}
+    \label{fig:del-1-oppgave-2.2}
+\end{figure}
+
+En pinneis er $\SI{1.5}{cm}$ tykk. Forsiden er et kvadrat med sider
+$\SI{6.0}{cm}$ og en halvsirkel.
+Se \cref{fig:del-1-oppgave-2.2}. I denne oppgaven ser vi bort fra pinnen.
+
+\begin{oppgaver}
+    \Item{2} Bestem volumet av isen.
+\end{oppgaver}
+
+\begin{oppgaver}
+    \Item{2} Bestem overflaten av isen.
+\end{oppgaver}
+
+
+\Oppgave[4] % Oppgave 2.3
+
+Du har $200$ mynter i en eske.
+
+\begin{itemize}
+    \item $\cfrac{1}{5}$ av myntene er laget før $1940$. Av disse er
+      kobbermynter.
+    \item av myntene er laget etter $1940$. Halvparten av disse er kobbermynter.
+\end{itemize}
+
+Du tar en mynt tilfeldig fra esken.
+
+\begin{oppgaver}
+    \Item{2} Bestem sannsynligheten for at du tar en kobbermynt.
+\end{oppgaver}
+
+Anta at du tok en kobbermynt.
+
+\begin{oppgaver}
+    \Item{2} Bestem sannsynligheten for at denne mynten er laget før $1940$.
+\end{oppgaver}
+
+
+\Oppgave[4] % Oppgave 2.4
+
+\begin{figure}[H]
+  \tikzsetnextfilename{Forkurs-1p-2p-laererutdanning-2017-V-oppgave-2-4}
+    \begin{tikzpicture}
+    % Base values ymin=-0.45,ymax=2.85,xmin=-0.4,xmax=5.5
+        \tkzInit[ymin=-0.675,ymax=4.275,xmin=-0.6,xmax=8.25]
+        \tkzClip
+        \edef\scalePic{1.5}
+        \pgfmathsetmacro\AC{\scalePic*4}
+        \pgfmathsetmacro\BC{\scalePic*3}
+        \pgfmathsetmacro\AB{sqrt(\AC*\AC+\BC*\BC)}
+
+        \tkzDefPoint(0,0){A}
+        \tkzDefPoint(\AB,0){B}
+
+        \tkzInterCC[R](A,\AC cm)(B,\BC cm)
+        \tkzGetPoints{C}{C1}
+
+        \tkzDefMidPoint(A,B) \tkzGetPoint{D}
+
+        \tkzDefPointWith[orthogonal](D,A) \tkzGetPoint{D1}
+
+        \tkzInterLC(A,C)(D,A) \tkzGetPoints{l1}{l2}
+        \tkzDefMidPoint(l1,l2) \tkzGetPoint{E}
+
+        \tkzMarkRightAngle(B,C,A)
+        \tkzMarkRightAngle(D,E,A)
+
+        \tkzDrawSegments[dashed,thick,color=maincolorLight](C,D D,E)
+
+        \tkzDrawPolygon[color=maincolorDark](A,B,C)
+        \tkzLabelPoint[below left](A){$A$}
+        \tkzLabelPoint[below right](B){$B$}
+        \tkzLabelPoint[above](C){$C$}
+        \tkzLabelPoint[below](D){$D$}
+        \tkzLabelPoint[above left](E){$E$}
+    \end{tikzpicture}
+    \caption{}
+    \label{fig:del-2-oppgave-4}
+\end{figure}
+
+Gitt \cref{fig:del-2-oppgave-4}. Punktet $D$ ligger midt på $AB$, $AC=8$ og
+$BC=6$.
+
+\begin{oppgaver}
+    \Item{2} Forklar at $\Delta ABC$ og $\Delta ADE$ er formlike.
+\end{oppgaver}
+
+\begin{oppgaver}
+    \Item{2} Vis at arealet av $\Delta ACD$ er lik arealet av $\Delta BCD$.
+\end{oppgaver}
+
+
+\Oppgave[3] % Oppgave 2.5
+
+Elisabet hoppet lengde med tilløp åtte ganger. Resultatene ser du i
+\cref{table:del-2-oppgave-2.5}. \medskip
+
+\begin{table}[H]
+   \caption{}
+   \label{table:del-2-oppgave-2.5}
+   \begin{tabularx}{\textwidth}{ *{4}Y }
+    \hline
+        \SI{4.98}{\m} & \SI{5.21}{\m} & \SI{5.28}{\m} & \SI{5.07}{\m} \\
+        \SI{5.20}{\m} & \SI{4.74}{\m} & \SI{4.85}{\m} & \SI{5.15}{\m} \\
+    \hline
+    \end{tabularx}
+\end{table}
+
+\begin{oppgaver}
+    \Item{1} Bestem gjennomsnittet og standardavviket til hopplengdene.
+\end{oppgaver}
+
+Tone hoppet også lengde med tilløp åtte ganger. Standardavviket for hopplengdene
+til Tone var $\SI{25}{\cm}$.
+
+\begin{oppgaver}
+    \Item{2} Hva kan du ut fra dette si om lengdehoppene til Tone sammenliknet
+    med lengdehoppene til Elisabet?
+\end{oppgaver}
+
+\Oppgave[5] % Oppgave 2.6
+\points*{5}
+
+\textquote{Mat på nett} er et firma hvor kunder kan bestille middag som de får
+levert på døra. \medskip
+
+Kundene kan velge mellom tre retter:
+
+\begin{itemize}
+    \item Dagens fisk koster $110$ kroner.
+    \item Dagens kjøtt koster $120$ kroner.
+    \item Dagens pasta koster $75$ kroner.
+\end{itemize}
+
+Firmaet gir $\SI{10}{\percent}$ rabatt til gode kunder. Levering koster $50$
+kroner for avstander som er mindre enn $\SI{8}{\km}$. For lengre avstander er
+prisen $100$ kroner. \medskip
+
+Du skal lage ett regneark som firmaet kan bruke for å registrere en bestilling,
+legge inn hvor mange prosent rabatt kunden skal få, og beregne hvor mye kunden
+skal betale. Regnearket skal se ut som vist nedenfor. I de hvite cellene skal
+firmaet registrere opplysninger når de tar imot en bestilling. I de lilla
+cellene skal du lage formler.
+
+\Oppgave[9] % Oppgave 2.7
+
+\Cref{table:del-1-oppgave-2.7} viser vekten til Tonje $x$ måneder etter fødselen.
+
+\begin{table}[H]
+    \caption{}
+    \label{table:del-1-oppgave-2.7}
+    \begin{tabularx}{\textwidth}{|l *{7}{Y}|} \hline \Rowcolor
+        Måned $x$      &      1     &      2     &      4     &      6     &      8     &      10    &      12    \\ \hline
+        Vekt (\si{\g}) & \num{4660} & \num{5300} & \num{6630} & \num{7530} & \num{8210} & \num{8860} & \num{9410} \\ \hline
+    \end{tabularx}
+\end{table}
+
+\begin{oppgaver}
+    \Item{1} Bruk regresjon til å vise at funksjonen $f$ gitt ved
+    %
+    \begin{equation*}
+        f(x) = 4500 \cdot x^{0.29}
+    \end{equation*}
+    %
+    er en god modell for vekten til Tonje det første leveåret.
+\end{oppgaver}
+
+\begin{oppgaver}
+    \Item{2} Bruk graftegner til å tegne grafen til $f$ for $1 \leq x \leq 12$
+\end{oppgaver}
+
+\begin{oppgaver}
+    \Item{2} Betem $f(7)$. Hvilken praktisk informasjon gir dette svaret?
+\end{oppgaver}
+
+\begin{oppgaver}
+    \Item{2} Bestem den gjennomsnittlige vekstfarten til funksjonen $f$ fra $x = 1$ til $x = 12$ Hvilken praktisk informasjon gir dette svaret?
+\end{oppgaver}
+
+\begin{oppgaver}
+    \Item{2} Bestem den momentane vekstfarten til funksjonen $f$ når $x=2$
+    Hvilken praktisk informasjon gir dette svaret?
+\end{oppgaver}
+
+
+\Oppgave[5] % Oppgave 2.8
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.06\textwidth}
+        \centering
+        \resizebox{\textwidth}{!}{\checkers{1}}
+        \caption{}
+    \end{subfigure}%
+    ~
+    \begin{subfigure}[b]{0.18\textwidth}
+        \centering
+        \resizebox{\textwidth}{!}{\checkers{3}}
+        \caption{}
+    \end{subfigure}%
+    ~
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \resizebox{\textwidth}{!}{\checkers{5}}
+        \caption{}
+    \end{subfigure}%
+    ~
+    \begin{subfigure}[b]{0.42\textwidth}
+        \centering
+        \resizebox{\textwidth}{!}{\checkers{7}}
+        \caption{}
+    \end{subfigure}%
+    \caption{}
+    \label{fig:del-2-oppgave-2.8}
+\end{figure}
+
+Tenk deg at du skal lage figurer av svarte og hvite kvadrater som vist i
+\cref{fig:del-2-oppgave-2.8}.
+
+\begin{oppgaver}
+    \Item{2} Skriv av og fyll ut \cref{table:del-2-oppgave-2.8} nedenfor.
+\end{oppgaver}
+
+\begin{table}[H]
+    \caption{}
+    \label{table:del-2-oppgave-2.8}
+    \begin{tabularx}{\textwidth}{|*{4}{Y|}}
+    \hline
+    \Rowcolor {Figur\headerstrut} & {Svarte kvadrat} & {Hvite kvadrat} &
+    {Kvadrat total} \\ \hline
+              1  &  1             &               &                 \\ \hline
+              2  &  5             &               &                 \\ \hline
+              3  &                &               &                 \\ \hline
+              4  &                &               &                 \\ \hline
+             $n$ &                &               &                 \\ \hline
+    \end{tabularx}
+\end{table}
+
+\begin{oppgaver}
+    \Item{3} Hvor mange svarte kvadrater trenger du dersom du skal lage en figur med totalt $7225$ kvadrater?
+\end{oppgaver}

@@ -1,0 +1,15 @@
+%% =====================================
+%% Code only for this exam
+%% =====================================
+
+\usepackage{adjustbox}
+
+\newcommand{\checkers}[1]{
+  \begin{tikzpicture}[xboard/.style={insert path={
+        (0,0) grid (#1,#1)
+        foreach \X in {1,...,#1}
+    {(\X-0.5,\X-0.5) pic{bx} (\X-0.5,#1-\X+0.5) pic{bx}}}},
+    pics/bx/.style={code={\fill (-0.5,-0.5) rectangle (0.5,0.5);}}]
+    \draw[xboard=#1];
+  \end{tikzpicture}%
+}
