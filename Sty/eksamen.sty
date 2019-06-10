@@ -1,5 +1,4 @@
 %
-% ==============================================================
 %
 % ▓█████  ██ ▄█▀  ██████  ▄▄▄       ███▄ ▄███▓▓█████  ███▄    █
 % ▓█   ▀  ██▄█▒ ▒██    ▒ ▒████▄    ▓██▒▀█▀ ██▒▓█   ▀  ██ ▀█   █
@@ -10,14 +9,17 @@
 %  ░ ░  ░░ ░▒ ▒░░ ░▒  ░ ░  ▒   ▒▒ ░░  ░      ░ ░ ░  ░░ ░░   ░ ▒░
 %    ░   ░ ░░ ░ ░  ░  ░    ░   ▒   ░      ░      ░      ░   ░ ░
 %    ░  ░░  ░         ░        ░  ░       ░      ░  ░         ░
+
 %          _     _       _         ____              _ _
 %    ____ (_)___| |_ ___(_)_ __   / ___|  ______   _(_) | __
 %   / _//\| / __| __/ _ \ | '_ \  \___ \ / _//\ \ / / | |/ /
 %  | (//) | \__ \ ||  __/ | | | |  ___) | (//) \ V /| |   <
 %   \//__/|_|___/\__\___|_|_| |_| |____/ \//__/ \_/ |_|_|\_\
 %
-% ==============================================================
 %
+%==============================================================================%
+%                                   PACKAGES                                   %
+%==============================================================================%
 
 \usepackage[utf8]{inputenc}
 
@@ -62,7 +64,7 @@
 \usepackage{etoolbox} %Neccecary for ifthenelse
 
 \usepackage{comment} %Neccecary to hide environments
-\usepackage{booktabs,multirow,tabularx,tabu}
+\usepackage{booktabs,multirow,tabularx} % Tabu is deprecated
 \usepackage{float} % Neccecary for the H option
 
 \usepackage{lipsum}
@@ -79,13 +81,11 @@
 \usepackage{fp,calc,numprint}
 \usepackage{xfp} % https://tex.stackexchange.com/questions/492898/avoid-repeating-num-other-command-in-xticklabels
 
-
-
 \usepackage{xstring,xparse,xifthen}
 
-%%% ===========================
-%%%   Important counters
-%%% ===========================
+%==============================================================================%
+%                                   COUNTERS                                   %
+%==============================================================================%
 
 \newcounter{host}
 \setcounter{host}{0}
@@ -106,7 +106,6 @@
 \newcounter{side} \setcounter{side}{1}
 \newcounter{alfa}[prob] \setcounter{alfa}{1}
 
-
 \newcounter{total_points_del_1}
 \setcounter{total_points_del_1}{0}
 \newcounter{total_points_del_2}
@@ -114,22 +113,22 @@
 \newcounter{total_points_del_1_and_del_2}
 \setcounter{total_points_del_1_and_del_2}{0}
 
-%%% =========================================
-%%%         Define Colors
-%%% =========================================
+%==============================================================================%
+%                                    COLORS                                    %
+%==============================================================================%
 
-\definecolor{P}{HTML}{C6D9F1}
-\definecolor{R}{HTML}{c6d9f1}
-\definecolor{S}{HTML}{FF7F00}
-\definecolor{T}{HTML}{dddddd}
 \definecolor{F}{HTML}{d7aade} % Forkurs
+\definecolor{P}{HTML}{C6D9F1} % Praktisk matematikk
+\definecolor{R}{HTML}{c6d9f1} % Realfaglig matematikk
+\definecolor{S}{HTML}{FF7F00} % Samfunnsfaglig matematikk
+\definecolor{T}{HTML}{dddddd} % Teoretisk matematikk
 \definecolor{U}{HTML}{bdd6ee} % Ungdomsskole
 
 \newcommand{\colorNotLosning}{gray}
 \newcommand{\losningscolor}[1]{
-    \ifthenelse{\equal{#1}{False}}
-        {\def\colorNotLosning{black}}
-        {}%
+  \ifthenelse{\equal{#1}{False}}
+  {\def\colorNotLosning{black}}
+  {}%
 }
 
 \definecolor{lghtGray}{HTML}{e4e1dc}
@@ -141,9 +140,10 @@
 \definecolor{maincolorMedium}{HTML}{425b9b}
 \definecolor{maincolorDark}{HTML}{003d80}
 
-%%% =========================================
-%%%         New column types
-%%% =========================================
+
+%==============================================================================%
+%                               NEW COLUMN TYPES                               %
+%==============================================================================%
 
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
 \newcolumntype{Z}{>{\raggedleft\arraybackslash}X}
@@ -155,29 +155,33 @@
 \newcommand{\Rowcolor}{\rowcolor{\maincolor}}
 \newcommand{\headerstrut}{\vphantom{$\bigg|$}}
 \newcommand{\tableHeader}[2]{\hline%
-    \multicolumn{#1}{|c|}{ \cellcolor{\maincolor}{#2\headerstrut} }  \\ \hline
+  \multicolumn{#1}{|c|}{ \cellcolor{\maincolor}{#2\headerstrut} }  \\ \hline
 }
-\newcommand{\tableHeaders}[2]{\hline\Rowcolor {#1\headerstrut} & {#2} \\ \hline}
+\newcommand{\tableHeaders}[2]{\hline%
+  \Rowcolor {#1\headerstrut} & {#2} \\ \hline%
+}
 
-%%% =========================================
-%%%         Header and Footer
-%%% =========================================
+
+%==============================================================================%
+%                              HEADER AND FOOTER                               %
+%==============================================================================%
 
 \usepackage{fancyhdr}
 %\usepackage{lastpage} % Does not work with the table
 \usepackage[page]{totalcount}
+
 \fancypagestyle{eksamen}{%
-    \fancyhf{}
-    \renewcommand{\footrulewidth}{0.4pt}% Default \footrulewidth is 0pt
-    %
-    \lhead{ Øistein Søvik }
-    \chead{   \ifthenelse{\equal{\isLosningforslag}{True}}{Løsningsforslag -- }{}%
-     \ifthenelse{\arabic{tittel}<1}{}{Del \arabic{tittel}}  }
-    \rhead{ \Labelfire }
-    %
-    \lfoot{ \eksamenOrProve \ \ \Labeltre }
-    \cfoot{}
-    \rfoot{Side~\thepage\ifthenelse{\arabic{tittel}<1}{}{~av~\totalpages}}
+  \fancyhf{}
+  \renewcommand{\footrulewidth}{0.4pt}% Default \footrulewidth is 0pt
+  %
+  \lhead{ Øistein Søvik }
+  \chead{   \ifthenelse{\equal{\isLosningforslag}{True}}{Løsningsforslag -- }{}%
+  \ifthenelse{\arabic{tittel}<1}{}{Del \arabic{tittel}}  }
+  \rhead{ \Labelfire }
+  %
+  \lfoot{ \eksamenOrProve \ \ \Labeltre }
+  \cfoot{}
+  \rfoot{Side~\thepage\ifthenelse{\arabic{tittel}<1}{}{~av~\totalpages}}
 }
 
 \fancypagestyle{withoutFooter}{ %
@@ -185,106 +189,110 @@
   \renewcommand{\headrulewidth}{0pt} % remove lines as well
   %
   \renewcommand{\footrulewidth}{0.4pt}% Default \footrulewidth is 0pt
-    \lfoot{ \Labeltre }
-    \cfoot{}
-    \rfoot{Side~\thepage\ifthenelse{\arabic{tittel}<1}{}{~av~\totalpages}}
+  \lfoot{ \Labeltre }
+  \cfoot{}
+  \rfoot{Side~\thepage\ifthenelse{\arabic{tittel}<1}{}{~av~\totalpages}}
 }
 
 
-%%% =========================================
-%%%         Titlepage generation
-%%% =========================================
+%==============================================================================%
+%                             TITLEPAGE GENERATION                             %
+%==============================================================================%
 
 \newcommand{\headerImg}[2]{
-    \pgfmathsetmacro{\myscale}{\textwidth/18.85cm}%
-        \begin{tikzpicture}[nodes={inner sep=0pt,outer sep=0pt},scale=\myscale]
-            \fill[maincolorDark]  (0,0) rectangle (18.85,3.25);
-            \fill[maincolorLight] (10,0) to[out=14,in=-140] (17.32,3.25)--
-            (17.6,3.25) to[out=-140,in=15] (11.7,0) -- cycle;
-            \fill[maincolorMedium] (17.6,3.25) to[out=-140,in=15] (11.7,0) -| (18.85,3.25) -- cycle;
-            \node[anchor=south west,text=white,font=\bfseries,scale=3*\myscale] at (0.5,0.75){#1};
-            \node[anchor=south east,text=white,font=\bfseries,scale=2*\myscale] at (18.5,0.4){#2};
-\end{tikzpicture}
+  \pgfmathsetmacro{\myscale}{\textwidth/18.85cm}%
+  \begin{tikzpicture}[nodes={inner sep=0pt,outer sep=0pt},scale=\myscale]
+    \fill[maincolorDark]  (0,0) rectangle (18.85,3.25);
+    \fill[maincolorLight] (10,0) to[out=14,in=-140] (17.32,3.25)--
+    (17.6,3.25) to[out=-140,in=15] (11.7,0) -- cycle;
+    \fill[maincolorMedium] (17.6,3.25) to[out=-140,in=15] (11.7,0) -| (18.85,3.25) -- cycle;
+    \node[anchor=south west,text=white,font=\bfseries,scale=3*\myscale] at (0.5,0.75){#1};
+    \node[anchor=south east,text=white,font=\bfseries,scale=2*\myscale] at (18.5,0.4){#2};
+  \end{tikzpicture}
 }
 
 \newcommand{\headerInfo}[3]{
-    \pgfmathsetmacro{\myscale}{\textwidth/18.85cm}%
-        \begin{tikzpicture}[nodes={inner sep=0pt,outer sep=0pt},scale=\myscale]
-            \fill[#3]  (0,0) rectangle (18.85,3.25);
-            \node[anchor=south west,text=lghtGrayText,align=left,scale=#2*\myscale] at (0.5,1.25){#1};
-\end{tikzpicture}
+  \pgfmathsetmacro{\myscale}{\textwidth/18.85cm}%
+  \begin{tikzpicture}[nodes={inner sep=0pt,outer sep=0pt},scale=\myscale]
+    \fill[#3]  (0,0) rectangle (18.85,3.25);
+    \node[anchor=south west,text=lghtGrayText,align=left,scale=#2*\myscale] at (0.5,1.25){#1};
+  \end{tikzpicture}
 }
 
 \newcommand{\headerLF}{
-    \pgfmathsetmacro{\myscale}{\textwidth/18.85cm}%
-        \begin{tikzpicture}[nodes={inner sep=0pt,outer sep=0pt},scale=\myscale]
-            \fill[basementOrange]  (0,0) rectangle (18.85,3.25);
-            \node[anchor=south west,text=black,scale=2*\myscale] at (0.5,1.25){Løsningsforslag};
-            \node[anchor=south east,text=black,scale=2*\myscale] at (18.5,0.4){Øistein Søvik};
-\end{tikzpicture}
+  \pgfmathsetmacro{\myscale}{\textwidth/18.85cm}%
+  \begin{tikzpicture}[nodes={inner sep=0pt,outer sep=0pt},scale=\myscale]
+    \fill[basementOrange]  (0,0) rectangle (18.85,3.25);
+    \node[anchor=south west,text=black,scale=2*\myscale] at (0.5,1.25){Løsningsforslag};
+    \node[anchor=south east,text=black,scale=2*\myscale] at (18.5,0.4){Øistein Søvik};
+  \end{tikzpicture}
 }
 
 \newcommand{\Eksamen}[5]{%
-\def\Year{#5}
-\pagenumbering{roman}
-\pagestyle{plain}
-\def\eksamenOrProve{Eksamen}
-\IfStrEqCase{#1}{%
-	{F}{%
-	\definecolor{maincolorLight}{HTML}{c48fcd}%
-    \definecolor{maincolorMedium}{HTML}{a757b2}%
-    \definecolor{maincolorDark}{HTML}{9637a0}%
-    \def\eksamenOrProve{Prøve}
-	\newcommand{\maincolor}{F}\def\Label{1P + 2P} \def\Labeltre{Matematikk 1P og 2P Forkurs Lærerutdanningene  }}%
-	{U}{\newcommand{\maincolor}{U}\def\Label{} \def\Labeltre{MAT0010 Matematikk}}%
-	{P}{\newcommand{\maincolor}{P}\def\Label{$#2$P} \def\Labeltre{\ifthenelse{\equal{#2}{2}}{MAT1015 Matematikk 2P}{\ifthenelse{\equal{#2}{1}}{MAT1011 Matematikk 1P}{} }}}%
-	{T}{\newcommand{\maincolor}{T}\def\Label{$#2$T}%
-	    \ifthenelse{\equal{#2}{2}}{\def\Labeltre{MAT1017 Matematikk 2T}}{
-	    \ifthenelse{\equal{#2}{1}}{\def\Labeltre{MAT1013 Matematikk 1T}}{} }}%
+  \def\Year{#5}
+  \pagenumbering{roman}
+  \pagestyle{plain}
+  \def\eksamenOrProve{Eksamen}
+  \IfStrEqCase{#1}{%
+    {F}{\def\eksamenOrProve{Prøve}
+      \definecolor{maincolorLight}{HTML}{c48fcd}%
+      \definecolor{maincolorMedium}{HTML}{a757b2}%
+      \definecolor{maincolorDark}{HTML}{9637a0}%
+      \newcommand{\maincolor}{F}\def\Label{1P + 2P}%
+    \def\Labeltre{Matematikk 1P og 2P Forkurs Lærerutdanningene  }}%
+    {U}{\newcommand{\maincolor}{U}\def\Label{}%
+    \def\Labeltre{MAT0010 Matematikk}}%
+    {P}{\newcommand{\maincolor}{P}\def\Label{$#2$P}%
+      \def\Labeltre{\ifthenelse{\equal{#2}{2}}{MAT1015 Matematikk 2P}{%
+    \ifthenelse{\equal{#2}{1}}{MAT1011 Matematikk 1P}{} }}}%
+    {T}{\newcommand{\maincolor}{T}\def\Label{$#2$T}%
+      \def\Labeltre{\ifthenelse{\equal{#2}{2}}{MAT1017 Matematikk 2T}{%
+    \ifthenelse{\equal{#2}{1}}{MAT1013 Matematikk 1T}{} }}}%
     {R}{\newcommand{\maincolor}{R}\def\Label{R#2}%
-        \ifthenelse{\equal{#2}{1}}{\def\Labeltre{REA3022 Matematikk R1}}{%
-        \ifthenelse{\equal{#2}{2}}{\def\Labeltre{REA2024 Matematikk R2}}}}%
-    {S}{\newcommand{\maincolor}{S}\def\Label{S#2} \def\Labeltre{ \ifthenelse{\equal{#2}{2}}{REA2028 Matematikk S2}{\ifthenelse{\equal{#2}{1}}{REA2026 Matematikk S1}{} }}}%
-      }{}%
-\IfStrEqCase{#3}{%
-	{H}{\def\Labelto{ Høst } \def\Labelfire{Høsten \Year} \refstepcounter{host}}%
+      \def\Labeltre{\ifthenelse{\equal{#2}{2}}{REA3024 Matematikk R2}{%
+    \ifthenelse{\equal{#2}{1}}{REA1022 Matematikk R1}{} }}}%
+    {S}{\newcommand{\maincolor}{S}\def\Label{S#2}%
+      \def\Labeltre{\ifthenelse{\equal{#2}{2}}{REA2028 Matematikk S2}{%
+    \ifthenelse{\equal{#2}{1}}{REA2026 Matematikk S1}{} }}}%
+  }{}%
+  \IfStrEqCase{#3}{%
+    {H}{\def\Labelto{ Høst } \def\Labelfire{Høsten \Year} \refstepcounter{host}}%
     {V}{\def\Labelto{ Vår } \def\Labelfire{Våren \Year}}%
-      }[\def\Labelto{ #3 } \def\Labelfire{Høsten \Year}]%
+  }[\def\Labelto{ #3 } \def\Labelfire{Høsten \Year}]%
 
-\headerImg{\eksamenOrProve}{#4}
+  \headerImg{\eksamenOrProve}{#4}
 
-\medskip
+  \medskip
 
-\IfStrEqCase{#1}{%
-	{F}{%
-        \headerInfo{Sentralt gitt skriftleg prøve i matematikk 1P og 2P \\
-                    etter forkurs i lærarutdanningane}{1.5}{lghtGray}%
-        }%
-}[\headerInfo{\Labeltre}{2}{lghtGray}]
+  \IfStrEqCase{#1}{%
+    {F}{%
+      \headerInfo{Sentralt gitt skriftleg prøve i matematikk 1P og 2P \\
+      etter forkurs i lærarutdanningane}{1.5}{lghtGray}%
+    }%
+  }[\headerInfo{\Labeltre}{2}{lghtGray}]
 
-    \ifthenelse{\equal{\isLosningforslag}{True}}
-    {\medskip\headerLF}
-    {}%
+  \ifthenelse{\equal{\isLosningforslag}{True}}
+  {\medskip\headerLF}
+  {}%
 
-
-\stepcounter{page}\newpage
-\AtEndDocument{%
-\noindent\pagestyle{empty}%
-\pgfmathsetmacro{\myscale}{\textwidth/18.85cm}%
-\begin{tikzpicture}[scale=\myscale,remember
-picture,overlay,baseline=-\baselineskip]
-    \path (current page text area.south east) coordinate (BR);
-    \fill[maincolorDark]  (0,0) rectangle (0,-3.25-|BR);
-    \fill[maincolorMedium]  (0,-3.5) rectangle (0,-3.5-3.25-|BR);
-    \fill[maincolorLight]  (0,-7) rectangle (BR);
-\end{tikzpicture}
-\clearpage
+  \stepcounter{page}\newpage
+  \AtEndDocument{%
+    \noindent\pagestyle{empty}%
+    \pgfmathsetmacro{\myscale}{\textwidth/18.85cm}%
+    \begin{tikzpicture}[scale=\myscale,remember
+      picture,overlay,baseline=-\baselineskip]
+      \path (current page text area.south east) coordinate (BR);
+      \fill[maincolorDark]  (0,0) rectangle (0,-3.25-|BR);
+      \fill[maincolorMedium]  (0,-3.5) rectangle (0,-3.5-3.25-|BR);
+      \fill[maincolorLight]  (0,-7) rectangle (BR);
+    \end{tikzpicture}
+    \clearpage
+  }
 }
-}
 
-%%% =========================================
-%%%         Exam information (Page 2)
-%%% =========================================
+%==============================================================================%
+%                     EXAM INFORMATION (PAGE 2)                                %
+%==============================================================================%
 
 \newcommand{\tinyurl}[2]{\bgroup\scriptsize \url{#1}(#2) \egroup}
 
@@ -329,18 +337,18 @@ picture,overlay,baseline=-\baselineskip]
     \\ \hline
     \textbf{Andre} & Kilder for bilder, tegninger osv.\\
     \textbf{Opplysninger} &\vspace*{-\baselineskip} \begin{itemize}
-        #5
-      \item Andre bilder, tegninger og grafiske framstillinger:
-        Utdanningsdirektoratet.%
-    \end{itemize}
-    \\ \hline
+      #5
+    \item Andre bilder, tegninger og grafiske framstillinger:
+      Utdanningsdirektoratet.%
+  \end{itemize}
+  \\ \hline
     \end{tabularx}
     \egroup\clearpage
   }
 
-%%% =========================================
-%%%         Table of contents
-%%% =========================================
+%==============================================================================%
+%                              TABLE OF CONTENTS                               %
+%==============================================================================%
 
 \newcommand{\TOC}{
 \hypersetup{linkcolor= black}
@@ -355,12 +363,13 @@ picture,overlay,baseline=-\baselineskip]
 
 % Make sure that tikzpictures can be scaled to textwidth
 \usepackage{environ}
+
 \makeatletter
 \newsavebox{\measure@tikzpicture}
 \NewEnviron{scaletikzpicturetowidth}[1]{%
   \def\tikz@width{#1}%
   \def\tikzscale{1}\begin{lrbox}{\measure@tikzpicture}%
-  \BODY
+    \BODY
   \end{lrbox}%
   \pgfmathparse{#1/\wd\measure@tikzpicture}%
   \edef\tikzscale{\pgfmathresult}%
@@ -375,32 +384,34 @@ picture,overlay,baseline=-\baselineskip]
  	         table-number-alignment = right ,
              table-format=2.3,
              list-final-separator = { og },
-             per-mode=symbol}
+             per-mode=symbol
+  }
 
 % This creates a table of the grade distribution. Number of decimals are restricted to one.
 % In addition it calculates the average grade
 \DeclareDocumentCommand\Karakter{m m m m m m m g}{%
-\vspace{1.5cm}
-\ifthenelse{\arabic{host}<1}{
-\FPeval{final}{ 0.01*(1*#2 + 2*#3 + 3*#4 + 4*#5 + 5*#6 + 6*#7) }
-\begin{table}[!htbp]
- \npdecimalsign{.}
- \nprounddigits{1}
-\caption*{\textbf{Karakterfordelingen}}
-	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l c *{6}{n{3}{2}}}
-		\toprule
-            {\textbf{Karakter}               }&  &   1   &   2   &   3   &   4   &   5   &  6     \\
+  \vspace{1.5cm}
+  \ifthenelse{\arabic{host}<1}{
+    \FPeval{final}{ 0.01*(1*#2 + 2*#3 + 3*#4 + 4*#5 + 5*#6 + 6*#7) }
+    \begin{table}[!htbp]
+      \npdecimalsign{.}
+      \nprounddigits{1}
+      \caption*{\textbf{Karakterfordelingen}}
+      \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l c *{6}{n{3}{2}}}
+        \toprule
+        {\textbf{Karakter}               }&  &   1   &   2   &   3   &   4   &   5   &  6     \\
         \midrule
-            {\textbf{Prosent [\si{\percent}]}}&  &  #2   &  #3   &  #4   &  #5   &  #6   &  #7    \\
-		\bottomrule
-	\end{tabular*} \medskip
-	\caption*{Gjennomsnittet av de $\num{#1}$ besvarelsene var \IfNoValueTF{#8}%
-{\num[round-mode=places,%
-      round-integer-to-decimal,%
-      round-precision = 1,%
-      round-half = up]{\final}}%
-{\num{#8}}.}
-\end{table}}}
+        {\textbf{Prosent [\si{\percent}]}}&  &  #2   &  #3   &  #4   &  #5   &  #6   &  #7    \\
+        \bottomrule
+      \end{tabular*} \medskip
+      \caption*{Gjennomsnittet av de $\num{#1}$ besvarelsene var \IfNoValueTF{#8}%
+        {\num[round-mode=places,%
+          round-integer-to-decimal,%
+          round-precision = 1,%
+        round-half = up]{\final}}%
+      {\num{#8}}.}
+  \end{table}}%
+}
 
 
 % Calculates the percent of the given input
@@ -409,47 +420,50 @@ picture,overlay,baseline=-\baselineskip]
 % This shows how many points and percent of the exam you have to have solved
 % To obtain each grade
 \newcommand{\KarakterGrenser}[5]{%
- \begin{table}[!htbp]
- \renewcommand{\arraystretch}{1.2}\addtolength{\tabcolsep}{-1pt}
- \prp{#1}{alf}
- \prp{#2}{bet}
- \prp{#3}{gam}
- \prp{#4}{delt}
- \prp{#5}{epsi}
- \npdecimalsign{.}
- \nprounddigits{0}
- \caption*{\textbf{ Karaktergrenser} }
-	 \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l l *{6}{n{3}{2}}}
-	 \toprule
-\textbf{Karakter }  &    1    &       2      &       3    &       4   &       5      &        6              \\ \midrule
-\textbf{I poeng  }  &         &      #1      &      #2    &      #3   &      #4      &       #5              \\ \midrule
-{\textbf{I prosent [\si{\percent}]}}&& \alf  &    \bet    &    \gam   &    \delt     &    \epsi              \\
-	 \bottomrule
-	 \end{tabular*} \vspace{0.5cm}
- \end{table}}
+  \begin{table}[!htbp]
+    \renewcommand{\arraystretch}{1.2}\addtolength{\tabcolsep}{-1pt}
+    \prp{#1}{alf}
+    \prp{#2}{bet}
+    \prp{#3}{gam}
+    \prp{#4}{delt}
+    \prp{#5}{epsi}
+    \npdecimalsign{.}
+    \nprounddigits{0}
+    \caption*{\textbf{ Karaktergrenser} }
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l l *{6}{n{3}{2}}}
+      \toprule
+      \textbf{Karakter }  &    1    &       2      &       3    &       4   &       5      &        6              \\ \midrule
+      \textbf{I poeng  }  &         &      #1      &      #2    &      #3   &      #4      &       #5              \\ \midrule
+      {\textbf{I prosent [\si{\percent}]}}&& \alf  &    \bet    &    \gam   &    \delt     &    \epsi              \\
+      \bottomrule
+    \end{tabular*} \vspace{0.5cm}
+  \end{table}%
+}
 
- \newcommand{\PoengFordeling}{
-\begin{table}[!htbp]
-\caption*{\textbf{Gjeldende poengfordeling}}
-\centering
-	\begin{tabular}{c c c}
-	    \TypesetTable
-	\end{tabular}
-\end{table} }
+\newcommand{\PoengFordeling}{
+  \begin{table}[!htbp]
+    \caption*{\textbf{Gjeldende poengfordeling}}
+    \centering
+    \begin{tabular}{c c c}
+      \TypesetTable
+    \end{tabular}
+  \end{table}%
+}
 
-%% =====================================
-%%        Kortsvar
-%% =====================================
+%==============================================================================%
+%                                   KORTSVAR                                   %
+%==============================================================================%
+
 %
 % The code below allows the creation of the "kortsvar" section defined at the top
 % in short this is done by redefining item to always produce a label. This label
 % is then referenced to in a special environment called "kortsvar".
 
 \specialcomment{Kortesvar}{%
-\newpage
-\thispagestyle{plain}
-\section*{Fasitsvar til regneoppgaver}
-\addcontentsline{toc}{section}{Fasitsvar til regneoppgaver}%
+  \newpage
+  \thispagestyle{plain}
+  \section*{Fasitsvar til regneoppgaver}
+  \addcontentsline{toc}{section}{Fasitsvar til regneoppgaver}%
 }{}
 
 % kortsvar is used to continue the current problem
@@ -468,20 +482,20 @@ picture,overlay,baseline=-\baselineskip]
 \NewDocumentCommand\points{s m}{%
   \begingroup\edef\x{\endgroup
     \noexpand\addtoDel{\arabic{tittel}}{\arabic{prob}%
-  \IfBooleanTF#1%
-    {}% If a star is seen
-    {\alph{alfa}}%     If no star is seen
+      \IfBooleanTF#1%
+      {}% If a star is seen
+      {\alph{alfa}}%     If no star is seen
     }{#2}%
   }\x
 }
-
 
 \newcommand{\Item}[1]{%
   \item\points{#1}
 }
 
-\newcommand{\losninglabel}{del-\arabic{tittelFasit}-oppgave-\arabic{problemFasit}}
-
+\newcommand{\losninglabel}{%
+  del-\arabic{tittelFasit}-oppgave-\arabic{problemFasit}%
+}
 
 % This part redefines item
 \let\org@item\@item
@@ -499,11 +513,13 @@ picture,overlay,baseline=-\baselineskip]
 }
 
 \newlist{deloppgaver}{enumerate}{1}
-\setlist[deloppgaver, 1]{ref=\arabic{prob}\alph{alfa},%
-                    topsep =1.2em,%
-                    label=\textbf{\alph{alfa})},%
-                    labelsep=1.5em,%
-                    itemsep=0.7cm}
+\setlist[deloppgaver, 1]{%
+  ref=\arabic{prob}\alph{alfa},%
+  topsep =1.2em,%
+  label=\textbf{\alph{alfa})},%
+  labelsep=1.5em,%
+  itemsep=0.7cm%
+}
 
 \newenvironment{oppgaver}{%
   \begin{deloppgaver}
@@ -542,10 +558,10 @@ picture,overlay,baseline=-\baselineskip]
 
 \makeatletter % not needed, strictly speaking: the @ will be part of the csname
 \newcommand\oppgaveExist{%
-    \ifcsdef{r@del-\arabic{tittelFasit}-oppgave-\arabic{problemFasit}}
-        {}
-        {\stepcounter{tittelFasit}\stepcounter{problemFasit}}
-}%
+  \ifcsdef{r@del-\arabic{tittelFasit}-oppgave-\arabic{problemFasit}}
+    {}
+    {\stepcounter{tittelFasit}\stepcounter{problemFasit}}
+  }%
 \makeatother
 
 \NewDocumentEnvironment{losning}{O{}}
@@ -570,37 +586,37 @@ picture,overlay,baseline=-\baselineskip]
 
 \ExplSyntaxOff
 
-%%% =====================
-%%%        Del 1
-%%% ====================
+%==============================================================================%
+%                                    DEL 1                                     %
+%==============================================================================%
 
 \newcommand{\Del}[1]{%
-\renewcommand{\arraystretch}{1.2}
-\pagestyle{eksamen}
+  \renewcommand{\arraystretch}{1.2}
+  \pagestyle{eksamen}
   \IfStrEqCase{#1}{%
     {u}{\def\Label{Uten }}%
     {m}{\def\Label{Med }}%
-    }[\def\Label{UNKNOWN }]%
- \newpage
- \refstepcounter{tittel}
- \ifthenelse{\arabic{tittel}=1}{\pagenumbering{arabic}
-                                \hypersetup{linkcolor=black}}{}
- \setcounter{side}{\arabic{page}}
- \thispagestyle{withoutFooter}
- \ifthenelse{\equal{\isLosningforslag}{True}}{\color{\colorNotLosning}}{}
+  }[\def\Label{UNKNOWN }]%
+  \newpage
+  \refstepcounter{tittel}
+  \ifthenelse{\arabic{tittel}=1}{\pagenumbering{arabic}
+  \hypersetup{linkcolor=black}}{}
+  \setcounter{side}{\arabic{page}}
+  \thispagestyle{withoutFooter}
+  \ifthenelse{\equal{\isLosningforslag}{True}}{\color{\colorNotLosning}}{}
   \phantomsection
   \addcontentsline{toc}{part}{%
-    \protect\textcolor{maincolorMedium}{\protect\Large{Del \arabic{tittel} }}}
-    \vspace*{-2cm}
+  \protect\textcolor{maincolorMedium}{\protect\Large{Del \arabic{tittel} }}}
+  \vspace*{-2cm}
   \noindent\fcolorbox{black}{\maincolor}{%
     \parbox[t][1.25cm][c]{\dimexpr\textwidth-2\fboxsep-2\fboxrule}{
-      \centering\bfseries Del \arabic{tittel} \\ \Label hjelpemidler}%
+    \centering\bfseries Del \arabic{tittel} \\ \Label hjelpemidler}%
   }%
 }
 
-%%% =====================
-%%%        Losningsforslag
-%%% ====================
+%==============================================================================%
+%                               LOSNINGSFORSLAG                                %
+%==============================================================================%
 
 \usepackage{comment}
 \specialcomment{losninger}
@@ -608,28 +624,31 @@ picture,overlay,baseline=-\baselineskip]
 
 \def\isLosningforslag{True}
 \newcommand{\losningsforslag}[1]{
-    \ifthenelse{\equal{#1}{False}}
-        {\def\isLosningforslag{False}\excludecomment{losninger}\excludecomment{Kortesvar}}
-        {\def\isLosningforslag{True}}%
+  \ifthenelse{\equal{#1}{False}}
+  {\def\isLosningforslag{False}%
+    \excludecomment{losninger}\excludecomment{Kortesvar}%
+  }
+  {\def\isLosningforslag{True}
+  }%
 }
 
 \usepackage{pgfplots}
 
 \pgfplotsset{
-    Eksamen1/.style={
-        scale only axis,
-        grid=major,
-        grid style={dashed, gray!50},
-        axis lines=middle,
-        inner axis line style={=>},
-        xlabel={\large $x$},
-        ylabel={\large $y$},
-        yticklabel style={inner ysep=0pt, anchor=south east},
-        xticklabel style={inner xsep=0pt, anchor=north west},
-            after end axis/.code={
-                \path (axis cs:0,0)
-                    node [anchor=north west,yshift=-0.075cm] {0}
-                    node [anchor=south east,xshift=-0.075cm] {0};
-            }
-    },
+  Eksamen1/.style={
+    scale only axis,
+    grid=major,
+    grid style={dashed, gray!50},
+    axis lines=middle,
+    inner axis line style={=>},
+    xlabel={\large $x$},
+    ylabel={\large $y$},
+    yticklabel style={inner ysep=0pt, anchor=south east},
+    xticklabel style={inner xsep=0pt, anchor=north west},
+    after end axis/.code={
+      \path (axis cs:0,0)
+      node [anchor=north west,yshift=-0.075cm] {0}
+      node [anchor=south east,xshift=-0.075cm] {0};
+    }
+  },
 }
