@@ -1,0 +1,48 @@
+%          _\|/_
+%          (o o)
+%  +----oOO-{_}-OOo----------------------+
+%  |                                     |
+%  |          FORKURS V2016 STY          |
+%  |                                     |
+%  +-------------------------------------*
+
+\usepackage{multicol, array, hhline, adjustbox}
+
+\definecolor{darkGray}{HTML}{e6e6e6}
+\definecolor{lightGray}{HTML}{f2f2f2}
+
+\newcommand{\tableTitle}{\multicolumn{5}{l|}{\cellcolor{lightGray}\bfseries Skatteberegning for personer med personinntekt over kr~565\,400\rule{0pt}{4ex}}}
+\newcommand{\blvi}[1]{\multicolumn{6}{l|}{\cellcolor{lightGray}#1}}
+\newcommand{\blv}[1]{\multicolumn{5}{l|}{\cellcolor{lightGray}#1}}
+\newcommand{\bliii}{\multicolumn{3}{l|}{\cellcolor{lightGray}}}
+\newcommand{\blii}{\multicolumn{2}{l|}{\cellcolor{lightGray}}}
+\newcommand{\mig}[1]{\multicolumn{1}{l}{\cellcolor{lightGray}\textbf{#1}}}
+\newcommand{\mcdg}[1]{\multicolumn{1}{c|}{\cellcolor{darkGray}#1}}
+\newcommand{\midg}[1]{\multicolumn{1}{|c|}{\cellcolor{darkGray}#1}}
+\newcommand{\dgr}{\cellcolor{darkGray}}
+\newcommand{\lgr}{\cellcolor{lightGray}}
+
+\newcommand{\drawTetris}[1]{%
+  \begin{tikzpicture}
+    \pgfmathtruncatemacro{\iEnd}{2+#1}
+    \pgfmathtruncatemacro{\jEnd}{1+2*#1}
+    {
+      \foreach \i in {1,...,\iEnd}
+      {
+        \foreach \j in {1,...,\jEnd}
+        \draw[fill=maincolorLight] (\i, \j) rectangle (\i+1, \j+1);
+      }
+    }
+
+    \pgfmathtruncatemacro{\iEnd}{#1+1}
+    \pgfmathtruncatemacro{\jEnd}{#1}
+
+    {
+      \foreach \i in {2,...,\iEnd}
+      {
+        \foreach \j in {1,...,\jEnd}
+        \draw[fill=white] (\i, \j) rectangle (\i+1, \j+1);
+      }
+    }
+  \end{tikzpicture}
+}
