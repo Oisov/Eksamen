@@ -28,6 +28,9 @@
 \usepackage{mathtools,amssymb}
 \usepackage{lmodern}
 
+\usepackage{graphics}
+\graphicspath{{img/}}
+
 % More colors are neccecary for the title and \Del
 %\usepackage[dvipsnames*,svgnames, table]{xcolor}
 % \usepackage{tikz} % Included in tkz-euclide
@@ -153,6 +156,7 @@
 \newcolumntype{R}{>{\columncolor[HTML]{\maincolor}}r}
 
 \newcommand{\Rowcolor}{\rowcolor{\maincolor}}
+\newcommand{\Cellcolor}{\cellcolor{\maincolor}}
 \newcommand{\headerstrut}{\vphantom{$\bigg|$}}
 \newcommand{\tableHeader}[2]{\hline%
   \multicolumn{#1}{|c|}{ \cellcolor{\maincolor}{#2\headerstrut} }  \\ \hline
