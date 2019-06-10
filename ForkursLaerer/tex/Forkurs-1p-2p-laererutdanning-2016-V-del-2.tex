@@ -76,14 +76,14 @@ kunne selge $x$ måneder etter produksjonsstart.
 Antall individer av en dyreart i et området har avtatt siden $1970$. Se
 
 \begin{table}[H]
+  \newcommand{\tbnum}[1]{\multirow{-2}{*}{$\num{#1}$}}
     \centering
     \caption{}
     \label{tab:del-1-oppgave-1.4}
     \begin{tabularx}{\textwidth}{| l | *{5}{Y|} } \hline
       \Cellcolor{År}        &    $1970$     &    $1980$     &    $1990$     &    $2000$    &    $2010$ \\ \hline
-      \Cellcolor{Antall}    &               &               &               &
-                            &  \\[-0.02cm]
-      \Cellcolor{individer} & \multirow{-2}{*}{$\num{40000}$} & \multirow{-2}{*}{$\num{24100}$} & \multirow{-2}{*}{$\num{14600}$} & \multirow{-2}{*}{$\num{8400}$} & \multirow{-2}{*}{$\num{5100}$} \\
+      \Cellcolor{Antall}    &               &               &               &              & \\[-0.02cm]
+      \Cellcolor{individer} & \tbnum{40000} & \tbnum{24100} & \tbnum{14600} & \tbnum{8400} & \tbnum{5100} \\
         \hline
     \end{tabularx}
 \end{table}
@@ -124,7 +124,7 @@ ikke yngre, søsken.
 %==============================================================================%
 \Oppgave[3] \points*{3}
 
-\begin{figure}[htpb]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.5\linewidth]{picnic.png}
   \caption{}
@@ -139,7 +139,7 @@ $\SI{2.5}{\m}$ lange. Anta at tverrsnittet til hver halve tømmerstokk har form
 som en halvsirkel med diameter $\SI{30}{\cm}$. Se \cref{fig:del-2-oppgave-2.5b}.
 
 
-\begin{figure}[htpb]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.5\linewidth]{threeLogs.png}
   \caption{}

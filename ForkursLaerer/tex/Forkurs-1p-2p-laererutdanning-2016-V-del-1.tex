@@ -133,6 +133,7 @@ Skriv så enkelt som mulig
       \tkzClip
       \edef\position{0.5}
       \edef\DE{4} \edef\ST{6} \edef\AB{7} \edef\SR{4.5}
+
       \pgfmathsetmacro{\trapeziumScale}{\ST/\DE}
       \pgfmathsetmacro{\DC}{\DE*\SR/\ST}
       \pgfmathsetmacro{\xD}{\position*(\AB-\DC)}
@@ -164,8 +165,10 @@ Skriv så enkelt som mulig
     \begin{tikzpicture}[scale=0.6]
       \tkzInit[xmin=-1.1250,xmax=11.61,ymin=-1.5,ymax=7.5]
       \tkzClip
+
       \edef\position{0.5}
       \edef\DE{4} \edef\ST{6} \edef\AB{7} \edef\SR{4.5}
+
       \pgfmathsetmacro{\trapeziumScale}{\ST/\DE}
       \pgfmathsetmacro{\DC}{\DE*\SR/\ST}
       \pgfmathsetmacro{\xD}{\position*(\AB-\DC)}
@@ -175,7 +178,6 @@ Skriv så enkelt som mulig
         \tkzDefPoint(\AB,0){B}
         \tkzDefPoint(\xD+\DC,\DE){C}
         \tkzDefPoint(\xD,\DE){D}
-
 
         \tkzDefLine[orthogonal=through D](A,B) \tkzGetPoint{d}
         \tkzInterLL(A,B)(D,d) \tkzGetPoint{E}
@@ -232,7 +234,6 @@ De to trapensene ovenfor er formlike. $DE = 4$, $ST = 6$, $AB = 7$ og $SR =
   \caption{}
   \label{fig:del-1-oppgave-7}
 \end{figure}
-
 
 Gitt \cref{fig:del-1-oppgave-7}. $AC = 12$, $BD = 10$, og $CD = 6$. \bigskip
 
@@ -370,11 +371,11 @@ Om by $A$ antar vi følgende:
 Om by $A$ antar vi følgende:
 %
 \begin{itemize}
-    \item Folketallet vil øke eksponentielt i årene som kommer.
+  \item Folketallet vil øke eksponentielt i årene som kommer.
     \item I $2017$ vil det være $\num{4080}$ innbyggere i byen.
 \end{itemize}
 
 \begin{oppgaver}
-    \Item{2} Bestem en modell som viser folketallet $A(x)$ i by $B$, $x$ år
+  \Item{2} Bestem en modell som viser folketallet $A(x)$ i by $B$, $x$ år
     etter $2016$ ut i fra antakelsene ovenfor.
 \end{oppgaver}
