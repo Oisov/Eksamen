@@ -1,9 +1,24 @@
-
-%% =========================================
-%%   DEL 2 - MED HJELPEMIDLER
-%% =========================================
+%==============================================================================%
+%                PRØVE | FORKURS 1P-2P LÆRERUTDANNING | V2017                  %
+%==============================================================================%
+%
+% __/\\\\\\\\\\\\____________________/\\\\\\______________/\\\\\\\\\_____
+%  _\/\\\////////\\\_________________\////\\\____________/\\\///////\\\___
+%   _\/\\\______\//\\\___________________\/\\\___________\///______\//\\\__
+%    _\/\\\_______\/\\\_____/\\\\\\\\_____\/\\\_____________________/\\\/___
+%     _\/\\\_______\/\\\___/\\\/////\\\____\/\\\__________________/\\\//_____
+%      _\/\\\_______\/\\\__/\\\\\\\\\\\_____\/\\\_______________/\\\//________
+%       _\/\\\_______/\\\__\//\\///////______\/\\\_____________/\\\/___________
+%        _\/\\\\\\\\\\\\/____\//\\\\\\\\\\__/\\\\\\\\\_________/\\\\\\\\\\\\\\\_
+%         _\////////////_______\//////////__\/////////_________\///////////////_
+%
+%==============================================================================%
+%                               MED HJELPEMIDLER                               %
+%==============================================================================%
 
 \Del{m}
+
+% ==============================================================================
 
 \Oppgave[2] % Oppgave 2.1
 \points*{2}
@@ -18,48 +33,49 @@ avslag på prisen. \medskip
 Hva må full pris per kilogram epler være i butikk $B$ for at Eivind skal betale
 det samme i butikk $B$ som Siri gjør i butikk $A$?
 
+% ==============================================================================
 
 \Oppgave[4] % Oppgave 2.2
 
 \begin{figure}[H]
-    \centering
-    \adjustbox{valign=t}{
+  \centering
+  \adjustbox{valign=t}{
     \begin{subfigure}[t]{0.45\textwidth}
-    \centering
-    \resizebox{0.4\textwidth}{!}{%
-    \tikzsetnextfilename{Forkurs-1p-2p-laererutdanning-2017-V-oppgave-2-2a}
-    \begin{tikzpicture}
-        \definecolor{brownMedium}{HTML}{623d22}
-        \definecolor{brownLight}{HTML}{a78d7b}
-        \definecolor{brownDark}{HTML}{573722}
-        %stick
-        \fill[brownLight]
-        (-1,-3.17) -- (-1,-8.48) arc (-140:-39:1.2) -- (0.8,-3.16) --cycle;
-        %shadow
-        \fill[brownLight!95!black,rounded corners]
-        (0.8,-3.15) -- (0.8,-3.9) -- (0.5,-4.3) -- (-0.8,-4.3) -- (-1,-4.1) -- (-1,-3.1);
-        %ice cream
-        \fill[brownDark]
-        (-4.2,5.2) -- (-4.2,-3.1) -- (-3.96,-3.24) -- (3.26,-3.21) -- (3.86,-2.9) -- (3.84,5.8) .. controls (3.54,9.77) and (-3.4,10.05) .. cycle;
-        \fill[brownMedium]
-        (3.21,5.5) -- (3.26,-3.21) -- (-3.96,-3.24) -- (-4,5.5) .. controls (-2.2,10.1) and (2.41,9.1) .. cycle;
-    \end{tikzpicture}}
-    \end{subfigure}}%
-    ~
-    \adjustbox{valign=t}{%
+      \centering
+      \resizebox{0.4\textwidth}{!}{%
+        \tikzsetnextfilename{Forkurs-1p-2p-laererutdanning-2017-V-oppgave-2-2a}
+        \begin{tikzpicture}
+          \definecolor{brownMedium}{HTML}{623d22}
+          \definecolor{brownLight}{HTML}{a78d7b}
+          \definecolor{brownDark}{HTML}{573722}
+          %stick
+          \fill[brownLight]
+          (-1,-3.17) -- (-1,-8.48) arc (-140:-39:1.2) -- (0.8,-3.16) --cycle;
+          %shadow
+          \fill[brownLight!95!black,rounded corners]
+          (0.8,-3.15) -- (0.8,-3.9) -- (0.5,-4.3) -- (-0.8,-4.3) -- (-1,-4.1) -- (-1,-3.1);
+          %ice cream
+          \fill[brownDark]
+          (-4.2,5.2) -- (-4.2,-3.1) -- (-3.96,-3.24) -- (3.26,-3.21) -- (3.86,-2.9) -- (3.84,5.8) .. controls (3.54,9.77) and (-3.4,10.05) .. cycle;
+          \fill[brownMedium]
+          (3.21,5.5) -- (3.26,-3.21) -- (-3.96,-3.24) -- (-4,5.5) .. controls (-2.2,10.1) and (2.41,9.1) .. cycle;
+      \end{tikzpicture}}
+  \end{subfigure}}%
+  ~
+  \adjustbox{valign=t}{%
     \begin{subfigure}[t]{0.45\textwidth}
-    \centering
-    \vspace{0.4cm}
-    \tikzsetnextfilename{Forkurs-1p-2p-laererutdanning-2017-V-oppgave-2-2b}
-    \begin{tikzpicture}
+      \centering
+      \vspace{0.4cm}
+      \tikzsetnextfilename{Forkurs-1p-2p-laererutdanning-2017-V-oppgave-2-2b}
+      \begin{tikzpicture}
         \edef\w{2.25}
         \draw[draw=maincolorMedium, thick] (0,\w) -- (0,0) -- (\w,0) node [midway, below]{$\SI{6}{\cm}$} -- (\w,\w) node [midway, right]{$\SI{6}{\cm}$};
         \draw[draw=maincolorMedium, dashed, thick] (0,\w) -- (\w,\w);
         \draw[thick, maincolorMedium] (\w,\w) arc(0:180:0.5*\w);
-    \end{tikzpicture}
-    \end{subfigure}}
-    \caption{}
-    \label{fig:del-1-oppgave-2.2}
+      \end{tikzpicture}
+  \end{subfigure}}
+  \caption{}
+  \label{fig:del-1-oppgave-2.2}
 \end{figure}
 
 En pinneis er $\SI{1.5}{cm}$ tykk. Forsiden er et kvadrat med sider
@@ -67,90 +83,93 @@ $\SI{6.0}{cm}$ og en halvsirkel.
 Se \cref{fig:del-1-oppgave-2.2}. I denne oppgaven ser vi bort fra pinnen.
 
 \begin{oppgaver}
-    \Item{2} Bestem volumet av isen.
+  \Item{2} Bestem volumet av isen.
 \end{oppgaver}
 
 \begin{oppgaver}
-    \Item{2} Bestem overflaten av isen.
+  \Item{2} Bestem overflaten av isen.
 \end{oppgaver}
 
+% ==============================================================================
 
 \Oppgave[4] % Oppgave 2.3
 
 Du har $200$ mynter i en eske.
 
 \begin{itemize}
-    \item $\cfrac{1}{5}$ av myntene er laget før $1940$. Av disse er
-      kobbermynter.
-    \item av myntene er laget etter $1940$. Halvparten av disse er kobbermynter.
+  \item $\cfrac{1}{5}$ av myntene er laget før $1940$. Av disse er
+    kobbermynter.
+  \item av myntene er laget etter $1940$. Halvparten av disse er kobbermynter.
 \end{itemize}
 
 Du tar en mynt tilfeldig fra esken.
 
 \begin{oppgaver}
-    \Item{2} Bestem sannsynligheten for at du tar en kobbermynt.
+  \Item{2} Bestem sannsynligheten for at du tar en kobbermynt.
 \end{oppgaver}
 
 Anta at du tok en kobbermynt.
 
 \begin{oppgaver}
-    \Item{2} Bestem sannsynligheten for at denne mynten er laget før $1940$.
+  \Item{2} Bestem sannsynligheten for at denne mynten er laget før $1940$.
 \end{oppgaver}
 
+% ==============================================================================
 
 \Oppgave[4] % Oppgave 2.4
 
 \begin{figure}[H]
   \tikzsetnextfilename{Forkurs-1p-2p-laererutdanning-2017-V-oppgave-2-4}
-    \begin{tikzpicture}
+  \begin{tikzpicture}
     % Base values ymin=-0.45,ymax=2.85,xmin=-0.4,xmax=5.5
-        \tkzInit[ymin=-0.675,ymax=4.275,xmin=-0.6,xmax=8.25]
-        \tkzClip
-        \edef\scalePic{1.5}
-        \pgfmathsetmacro\AC{\scalePic*4}
-        \pgfmathsetmacro\BC{\scalePic*3}
-        \pgfmathsetmacro\AB{sqrt(\AC*\AC+\BC*\BC)}
+    \tkzInit[ymin=-0.675,ymax=4.275,xmin=-0.6,xmax=8.25]
+    \tkzClip
+    \edef\scalePic{1.5}
+    \pgfmathsetmacro\AC{\scalePic*4}
+    \pgfmathsetmacro\BC{\scalePic*3}
+    \pgfmathsetmacro\AB{sqrt(\AC*\AC+\BC*\BC)}
 
-        \tkzDefPoint(0,0){A}
-        \tkzDefPoint(\AB,0){B}
+    \tkzDefPoint(0,0){A}
+    \tkzDefPoint(\AB,0){B}
 
-        \tkzInterCC[R](A,\AC cm)(B,\BC cm)
-        \tkzGetPoints{C}{C1}
+    \tkzInterCC[R](A,\AC cm)(B,\BC cm)
+    \tkzGetPoints{C}{C1}
 
-        \tkzDefMidPoint(A,B) \tkzGetPoint{D}
+    \tkzDefMidPoint(A,B) \tkzGetPoint{D}
 
-        \tkzDefPointWith[orthogonal](D,A) \tkzGetPoint{D1}
+    \tkzDefPointWith[orthogonal](D,A) \tkzGetPoint{D1}
 
-        \tkzInterLC(A,C)(D,A) \tkzGetPoints{l1}{l2}
-        \tkzDefMidPoint(l1,l2) \tkzGetPoint{E}
+    \tkzInterLC(A,C)(D,A) \tkzGetPoints{l1}{l2}
+    \tkzDefMidPoint(l1,l2) \tkzGetPoint{E}
 
-        \tkzMarkRightAngle(B,C,A)
-        \tkzMarkRightAngle(D,E,A)
+    \tkzMarkRightAngle(B,C,A)
+    \tkzMarkRightAngle(D,E,A)
 
-        \tkzDrawSegments[dashed,thick,color=maincolorLight](C,D D,E)
+    \tkzDrawSegments[dashed,thick,color=maincolorLight](C,D D,E)
 
-        \tkzDrawPolygon[color=maincolorDark](A,B,C)
-        \tkzLabelPoint[below left](A){$A$}
-        \tkzLabelPoint[below right](B){$B$}
-        \tkzLabelPoint[above](C){$C$}
-        \tkzLabelPoint[below](D){$D$}
-        \tkzLabelPoint[above left](E){$E$}
-    \end{tikzpicture}
-    \caption{}
-    \label{fig:del-2-oppgave-4}
+    \tkzDrawPolygon[color=maincolorDark](A,B,C)
+    \tkzLabelPoint[below left](A){$A$}
+    \tkzLabelPoint[below right](B){$B$}
+    \tkzLabelPoint[above](C){$C$}
+    \tkzLabelPoint[below](D){$D$}
+    \tkzLabelPoint[above left](E){$E$}
+  \end{tikzpicture}
+  \caption{}
+  \label{fig:del-2-oppgave-4}
 \end{figure}
 
 Gitt \cref{fig:del-2-oppgave-4}. Punktet $D$ ligger midt på $AB$, $AC=8$ og
 $BC=6$.
 
 \begin{oppgaver}
-    \Item{2} Forklar at $\Delta ABC$ og $\Delta ADE$ er formlike.
+  \Item{2} Forklar at $\Delta ABC$ og $\Delta ADE$ er formlike.
 \end{oppgaver}
 
 \begin{oppgaver}
-    \Item{2} Vis at arealet av $\Delta ACD$ er lik arealet av $\Delta BCD$.
+  \Item{2} Vis at arealet av $\Delta ACD$ er lik arealet av $\Delta BCD$.
 \end{oppgaver}
 
+% ==============================================================================
 
 \Oppgave[3] % Oppgave 2.5
 
@@ -169,16 +188,18 @@ Elisabet hoppet lengde med tilløp åtte ganger. Resultatene ser du i
 \end{table}
 
 \begin{oppgaver}
-    \Item{1} Bestem gjennomsnittet og standardavviket til hopplengdene.
+  \Item{1} Bestem gjennomsnittet og standardavviket til hopplengdene.
 \end{oppgaver}
 
 Tone hoppet også lengde med tilløp åtte ganger. Standardavviket for hopplengdene
 til Tone var $\SI{25}{\cm}$.
 
 \begin{oppgaver}
-    \Item{2} Hva kan du ut fra dette si om lengdehoppene til Tone sammenliknet
+  \Item{2} Hva kan du ut fra dette si om lengdehoppene til Tone sammenliknet
     med lengdehoppene til Elisabet?
 \end{oppgaver}
+
+% ==============================================================================
 
 \Oppgave[5] % Oppgave 2.6
 \points*{5}
@@ -189,9 +210,9 @@ levert på døra. \medskip
 Kundene kan velge mellom tre retter:
 
 \begin{itemize}
-    \item Dagens fisk koster $110$ kroner.
-    \item Dagens kjøtt koster $120$ kroner.
-    \item Dagens pasta koster $75$ kroner.
+  \item Dagens fisk koster $110$ kroner.
+  \item Dagens kjøtt koster $120$ kroner.
+  \item Dagens pasta koster $75$ kroner.
 \end{itemize}
 
 Firmaet gir $\SI{10}{\percent}$ rabatt til gode kunder. Levering koster $50$
@@ -203,6 +224,8 @@ legge inn hvor mange prosent rabatt kunden skal få, og beregne hvor mye kunden
 skal betale. Regnearket skal se ut som vist nedenfor. I de hvite cellene skal
 firmaet registrere opplysninger når de tar imot en bestilling. I de lilla
 cellene skal du lage formler.
+
+% ==============================================================================
 
 \Oppgave[9] % Oppgave 2.7
 
@@ -228,19 +251,20 @@ cellene skal du lage formler.
 \end{oppgaver}
 
 \begin{oppgaver}
-    \Item{2} Bruk graftegner til å tegne grafen til $f$ for $1 \leq x \leq 12$
+  \Item{2} Bruk graftegner til å tegne grafen til $f$ for $1 \leq x \leq 12$
 \end{oppgaver}
 
 \begin{oppgaver}
-    \Item{2} Betem $f(7)$. Hvilken praktisk informasjon gir dette svaret?
+  \Item{2} Betem $f(7)$. Hvilken praktisk informasjon gir dette svaret?
 \end{oppgaver}
 
 \begin{oppgaver}
-    \Item{2} Bestem den gjennomsnittlige vekstfarten til funksjonen $f$ fra $x = 1$ til $x = 12$ Hvilken praktisk informasjon gir dette svaret?
+  \Item{2} Bestem den gjennomsnittlige vekstfarten til funksjonen $f$ fra $x =
+    1$ til $x = 12$ Hvilken praktisk informasjon gir dette svaret?
 \end{oppgaver}
 
 \begin{oppgaver}
-    \Item{2} Bestem den momentane vekstfarten til funksjonen $f$ når $x=2$
+  \Item{2} Bestem den momentane vekstfarten til funksjonen $f$ når $x=2$
     Hvilken praktisk informasjon gir dette svaret?
 \end{oppgaver}
 
@@ -248,56 +272,60 @@ cellene skal du lage formler.
 \Oppgave[5] % Oppgave 2.8
 
 \begin{figure}[H]
+  \centering
+  \begin{subfigure}[b]{0.06\textwidth}
     \centering
-    \begin{subfigure}[b]{0.06\textwidth}
-        \centering
-        \resizebox{\textwidth}{!}{\checkers{1}}
-        \caption{}
-    \end{subfigure}%
-    ~
-    \begin{subfigure}[b]{0.18\textwidth}
-        \centering
-        \resizebox{\textwidth}{!}{\checkers{3}}
-        \caption{}
-    \end{subfigure}%
-    ~
-    \begin{subfigure}[b]{0.3\textwidth}
-        \centering
-        \resizebox{\textwidth}{!}{\checkers{5}}
-        \caption{}
-    \end{subfigure}%
-    ~
-    \begin{subfigure}[b]{0.42\textwidth}
-        \centering
-        \resizebox{\textwidth}{!}{\checkers{7}}
-        \caption{}
-    \end{subfigure}%
+    \resizebox{\textwidth}{!}{\checkers{1}}
     \caption{}
-    \label{fig:del-2-oppgave-2.8}
+  \end{subfigure}%
+  ~
+  \begin{subfigure}[b]{0.18\textwidth}
+    \centering
+    \resizebox{\textwidth}{!}{\checkers{3}}
+    \caption{}
+  \end{subfigure}%
+  ~
+  \begin{subfigure}[b]{0.3\textwidth}
+    \centering
+    \resizebox{\textwidth}{!}{\checkers{5}}
+    \caption{}
+  \end{subfigure}%
+  ~
+  \begin{subfigure}[b]{0.42\textwidth}
+    \centering
+    \resizebox{\textwidth}{!}{\checkers{7}}
+    \caption{}
+  \end{subfigure}%
+  \caption{}
+  \label{fig:del-2-oppgave-2.8}
 \end{figure}
 
 Tenk deg at du skal lage figurer av svarte og hvite kvadrater som vist i
 \cref{fig:del-2-oppgave-2.8}.
 
 \begin{oppgaver}
-    \Item{2} Skriv av og fyll ut \cref{table:del-2-oppgave-2.8} nedenfor.
+  \Item{2} Skriv av og fyll ut \cref{table:del-2-oppgave-2.8} nedenfor.
 \end{oppgaver}
 
 \begin{table}[H]
-    \caption{}
-    \label{table:del-2-oppgave-2.8}
-    \begin{tabularx}{\textwidth}{|*{4}{Y|}}
+  \caption{}
+  \label{table:del-2-oppgave-2.8}
+  \begin{tabularx}{\textwidth}{|*{4}{Y|}}
     \hline
     \Rowcolor {Figur\headerstrut} & {Svarte kvadrat} & {Hvite kvadrat} &
     {Kvadrat total} \\ \hline
-              1  &  1             &               &                 \\ \hline
-              2  &  5             &               &                 \\ \hline
-              3  &                &               &                 \\ \hline
-              4  &                &               &                 \\ \hline
-             $n$ &                &               &                 \\ \hline
-    \end{tabularx}
+    1  &  1             &               &                 \\ \hline
+    2  &  5             &               &                 \\ \hline
+    3  &                &               &                 \\ \hline
+    4  &                &               &                 \\ \hline
+    $n$ &                &               &                 \\ \hline
+  \end{tabularx}
 \end{table}
 
 \begin{oppgaver}
-    \Item{3} Hvor mange svarte kvadrater trenger du dersom du skal lage en figur med totalt $7225$ kvadrater?
+    \Item{3} Hvor mange svarte kvadrater trenger du dersom du skal lage en figur
+    med totalt $7225$ kvadrater?
 \end{oppgaver}
+
+% ==============================================================================
+
