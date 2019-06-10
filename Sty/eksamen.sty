@@ -594,10 +594,10 @@
 %                                    DEL 1                                     %
 %==============================================================================%
 
-\newcommand{\Del}[1]{%
+\NewDocumentCommand\Del{sm}{%
   \renewcommand{\arraystretch}{1.2}
   \pagestyle{eksamen}
-  \IfStrEqCase{#1}{%
+  \IfStrEqCase{#2}{%
     {u}{\def\Label{Uten }}%
     {m}{\def\Label{Med }}%
   }[\def\Label{UNKNOWN }]%
@@ -609,6 +609,7 @@
   \thispagestyle{withoutFooter}
   \ifthenelse{\equal{\isLosningforslag}{True}}{\color{\colorNotLosning}}{}
   \phantomsection
+  \IfBooleanTF#1{\addtocontents{toc}{\protect\pagebreak}}{}
   \addcontentsline{toc}{part}{%
   \protect\textcolor{maincolorMedium}{\protect\Large{Del \arabic{tittel} }}}
   \vspace*{-2cm}
