@@ -2,38 +2,14 @@
 %% Code only for this exam
 %% =====================================
 
-\usetikzlibrary{shapes}
+\usepackage{adjustbox}
 
-\newcommand{\polygons}[1]{
-  \begin{tikzpicture}
-    \begin{scope}[%
-      every node/.style={anchor=west,
-        regular polygon,
-        regular polygon sides=6,
-        draw,thick,
-        color=maincolorMedium,
-        minimum width=1.5cm,
-        outer sep=0,
-        rotate=-30,
-      },
-      transform shape]
-      \node (1) {};
-      \ifthenelse{#1>1}{%
-        {\foreach \i in {2,...,#1}
-          \pgfmathtruncatemacro{\j}{\i-1}
-          \node (\i) at (\j.corner 1) {};
-          \foreach \hex in {1,...,#1}
-          {
-            \foreach \corn in {1,...,6}
-            \draw[fill=maincolorLight] (\hex.corner \corn) circle (4pt);
-          }
-        }
-        }{%
-        {
-          \foreach \corn in {1,...,6}
-          \draw[fill=maincolorLight] (1.corner \corn) circle (4pt);
-        }
-      }
-    \end{scope}
-  \end{tikzpicture}
+\newcommand{\checkers}[1]{
+  \begin{tikzpicture}[xboard/.style={insert path={
+        (0,0) grid (#1,#1)
+        foreach \X in {1,...,#1}
+    {(\X-0.5,\X-0.5) pic{bx} (\X-0.5,#1-\X+0.5) pic{bx}}}},
+    pics/bx/.style={code={\fill (-0.5,-0.5) rectangle (0.5,0.5);}}]
+    \draw[xboard=#1];
+  \end{tikzpicture}%
 }

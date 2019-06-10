@@ -5,214 +5,287 @@
 
 \Del{u}
 
-\Oppgave[2] % Oppgave 1.1
-\points*{2}
+\Oppgave[5] % Oppgave 1.1
 
-I en kasse ligger det $60$ epler. $\SI{20}{\percent}$ av eplene er grønne,
-$\cfrac{7}{12}$ er røde og resten er gule. Hvor mange epler er gule?
+I \cref{table:del-1-oppgave-1.1} ser du hvor mange ganger Inger har vært på
+trening hver uke de $12$ siste ukene.\\
 
+\begin{table}[H]
+    \caption{}
+    \label{table:del-1-oppgave-1.1}
+    \begin{tabularx}{\textwidth}{*{12}{Y}} \hline
+        4 & 5 & 5 & 5 & 2 & 0 &
+        1 & 1 & 3 & 5 & 6 & 5 \\ \hline
+    \end{tabularx}
+\end{table}
 
-\Oppgave[2] % Oppgave 1.2
-\points*{2}
+\begin{oppgaver}
+    \Item{1} Bestem medianen, gjennomsnittet, typetallet og variasjonsbredden
+    for dette datamaterialet.
+\end{oppgaver}
+%
+\begin{oppgaver}
+    \Item{2} Sett opp en tabell som viser frekvens og kumulativ frekvens for
+    antall treninger hver uke.
+\end{oppgaver}
+%
+\begin{oppgaver}
+    \Item{1} Hva forteller den kumulative frekvensen for fire treninger hver
+    uke?  \end{oppgaver}
+
+\Oppgave[1] % Oppgave 1.2
+\points*{1}
 
 Regn ut og skriv svaret på standardform
-%
-\begin{equation*}
-    \frac{\num{7.5E5} \cdot \num{4.0E6}}{\num{2.5E-4}}
-\end{equation*}
+
+\begin{align*}
+    \SI{2.5e-15}{}
+    \cdot
+    \SI{0.00006}{}
+\end{align*}
 
 
 \Oppgave[2] % Oppgave 1.3
-\points*{2}
+\points*{2} %
 
-Svein hadde en nominell lønn på $\num{440 000}$ i $2008$. Konsumprisindeksen var
-$88$ dette året.
-\bigskip\noindent
+Caffè latte er en kaffedrikk som lages av espresso og melk.
+Forholdet mellom espresso og melk er vanligvis $1\colon3$. \medskip
 
-Bestem reallønna til Svein i $2008$.
+Hvor mange desiliter melk trenger du for å lage \SI{3}{\deci\liter} caffè latte?
+
+\Oppgave[2] % Oppgave 1.4
+\points*{2} %
+
+En vare kostet $480$ kroner i $2016$. Indeksen for denne varen var da $120$.
+Anta at indeksen for varen vil være $96$ i $2020$.
+Hva vil varen da koste i $2020$?
 
 
-\Oppgave[3] % Oppgave 1.4
-\points*{3}
+\Oppgave[4] % Oppgave 1.5
 
-Ved en skole er det $150$ ansatte. Skolen har et treningsrom som alle ansatte
-kan benytte. Tabellen nedenfor viser hvor ofte de ansatte benyttet
-treningsrommet i løpet av en uke.
-
-\begin{table}[H]
-    \centering
-    \caption{}
-    \begin{tabular}{| S[table-format=2.0] | S[table-format=2.0] |}
-         \tableHeaders{Antall ganger}{Antall ansatte}
-         0 & 80 \\
-         1 & 10 \\
-         2 & 15 \\
-         3 & 25 \\
-         4 &  5 \\
-         5 & 15 \\ \hline
-    \end{tabular}
-    \label{tab:del-1-oppgave-1.4}
-\end{table}
-
-\Oppgave[2] % Oppgave 1.5
-\points*{2}
+\Cref{fig:Del-1-Oppgave-5-1} viser et trapes $ABCD$. $M$ er midtpunkt på $AB$. I
+trapeset er det innskrevet en halvsirkel som har $DC$ som diameter og går
+gjennom $M$. $AM = DC = 2$.
 
 \begin{figure}[H]
-    \centering
-    \tikzsetnextfilename{Forkurs-1p-2p-laererutdanning-2018-V-oppgave-1-5}
-    \begin{tikzpicture}
-        \edef\BCxAB{2}
-        \edef\ArealABC{10}
-        \pgfmathsetmacro{\AB}{sqrt(2*\ArealABC/\BCxAB)}
-        \pgfmathsetmacro{\BC}{\BCxAB*\AB}
-        \tkzDefPoint(0,0){A}
-        \tkzDefPoint(\AB,0){B}
-        \tkzDefPoint(\AB,\BC){C}
+  \tikzsetnextfilename{Forkurs-1p-2p-laererutdanning-2017-V-oppgave-1-5}
+    \begin{tikzpicture}[inner sep=0,outer sep=0, minimum size=0pt]
+        \def\AM{4}\def\DC{\AM}\def\nodeDist{0.25}
 
-        \tkzMarkRightAngle[scale=2](A,B,C)
-        \tkzDrawPolygon(A,B,C)
+        \coordinate[label={[label distance=\nodeDist cm]225:A}] (A) at (0,0);
+        \coordinate[label={[label distance=\nodeDist cm]270:M}] (M) at (\AM,0);
+        \coordinate[label={[label distance=\nodeDist cm]315:B}] (B) at (2*\AM,0);
 
-        \tkzLabelPoint[below left](A){$A$}
-        \tkzLabelPoint[below right](B){$B$}
-        \tkzLabelPoint[above right](C){$C$}
+        \coordinate[label={[label distance=\nodeDist cm]45:C}] (C) at (1.5*\AM,0.5*\AM);
+        \coordinate[label={[label distance=\nodeDist cm]135:D}] (D) at (0.5*\AM,0.5*\AM);
+
+        \draw[thick, maincolorDark, fill = maincolorLight] (A) -- (B)-- (C) -- (D) -- cycle;
+        \draw[thin, maincolorDark, fill = maincolorMedium] (C) -- (D) arc(180:360:0.5*\AM);
     \end{tikzpicture}
     \caption{}
-    \label{fig:del-1-oppgave-1-5}
+    \label{fig:Del-1-Oppgave-5-1}
 \end{figure}
 
-Arealet av en trekant er $\SI{49}{\cm\squared}$, $BC$ er dobbelt så langt som
-$AB$. Se skissen ovenfor. Bestem lengden av $AB$.
+\begin{oppgaver}
+    \Item{2} Gjør beregninger og avgjør om arealet av halvsirkelen er større enn
+    det samlede arealet av de lyse områdene.
+\end{oppgaver}
+
+\begin{losninger}
+    La oss for enkelhetens skyld anta at $AM = DC = a$, hvor $a$ bare er ett
+    positivt tall. Radiusen til halvsirken er halvparten av lengden $DC$ slik
+    at arealet blir
+    %
+    \begin{equation*}
+          A_{\text{halvsirkel}}
+        = \frac{\pi (a/2)^2}{2}
+        = \frac{\pi}{8} a^2
+    \end{equation*}
+    %
+    For å bestemme arealet til trapset trenger vi høyden, men dette er jo bare
+    radiusen til halvsirkelen $h = DC/2 = a/2$
+    %
+    \begin{equation*}
+        A_{\text{trapes}}
+        = \frac{|DC| + |AB|}{2} \cdot h
+        = \frac{a + (2a)}{2} \cdot \frac{a}{2}
+        = \frac{3}{4}a^2.
+    \end{equation*}
+    %
+    Det lyselilla området blir differansen mellom halvsirkelen og trapeset
+    %
+    \begin{equation*}
+        A_{\text{lyselilla}}
+        = A_{\text{trapes}} - A_{\text{halvsirkel}}
+        = \frac{3}{4}a^2 - \frac{\pi}{8} a^2.
+    \end{equation*}
+    %
+    For å finne ut hvilke området som har størst areal kan vi se at
+    %
+    \begin{equation*}
+           A_{\text{lyselilla}}
+        = \frac{3}{4}a^2 - \frac{\pi}{8} a^2
+        < \frac{\pi}{4}a^2 - \frac{\pi}{8} a^2
+        = \frac{\pi}{8} a^2
+        =  A_{\text{halvsirkel}}
+    \end{equation*}
+    %
+    slik at arealet til de lyselilla området er mindre enn halvsirkelen.
+\end{losninger}
+
+\begin{oppgaver}
+    \Item{2} Vis at omkretsen av trapeset er $6 + 2\sqrt{2}$.
+\end{oppgaver}
+
+\begin{losninger}
+    Omkretsen til trapeset er gitt som
+    %
+    \begin{equation}
+        O_{\text{trapes}} = |AB| + |BC| + |CD| + |DA|
+    \end{equation}
+    %
+    Hvor det bare er lengdene $|CD|$ og $|DA|$ som er ukjente. La oss først
+    finne $|DA|$ vi merker oss først at lengden $|AE| = a/2$ siden $|AE| = |AM|
+    - |DM'| = a - a/2$.  Tilsvarende så er $|DE| = a/2$. Fra pytagoras har vi at
+    %
+    \begin{equation}
+        |AD|
+        = \sqrt{|AE|^2 + |DE|^2}
+        = \sqrt{(a/2)^2 + (a/2)^2}
+        = \sqrt{2}a/2
+    \end{equation}
+    %
+    Fra symmetri så er $|BC|=|AD|$ slik at omkretsen blir
+    %
+    \begin{align*}
+              O_{\text{trapes}}
+        & = |AB| + |BC| + |CD| + |DA| \\
+        & =   2a  +   \frac{\sqrt{2}}{2}a + a + \frac{\sqrt{2}}{2}a
+          =   3a  + \sqrt{2}a
+    \end{align*}
+    %
+    ved å sette inn $a=2$ får vi $O_{\text{trapes}} = 6 + 2 \sqrt{2}$ som var
+    det vi ønsket å vise.
+\end{losninger}
+
 
 \Oppgave[2] % Oppgave 1.6
 
-\begin{figure}[H]
-    \centering
-    \tikzsetnextfilename{Forkurs-1p-2p-laererutdanning-2018-V-oppgave-1-6}
-    \begin{tikzpicture}
-        \begin{axis}[
-            Eksamen1,
-            ytick={0,1,...,8},
-            yticklabel = {\num{\fpeval{\tick*1000}}},
-            xtick={0,2,...,20},
-            ymin=-.1,
-            ymax=9,
-            xmin=-.1,
-            xmax=22,
-            domain = 0.5:25,
-        ]
-            \addplot[color=maincolorMedium,thick,samples=250] {8/x} node[right,pos=0.25] {$f$};
-            \node[] at (axis cs: 6,8.5) {Pris per elev (kroner)};
-            \node[] at (axis cs: 19,1.5) {Antall elever};
-
-            \draw [maincolorMedium, fill] (axis cs: 2,4) circle (3pt) node [above right] {$(2, \num{4000})$};
-            \draw [maincolorMedium, fill] (axis cs: 4,2) circle (3pt) node [above right] {$(4, \num{2000})$};
-            \draw [maincolorMedium, fill] (axis cs: 10,0.8) circle (3pt) node [above right] {$(10, \num{800})$};
-            \draw [maincolorMedium, fill] (axis cs: 16,0.5) circle (3pt) node [above right] {$(16, \num{500})$};
-        \end{axis}
-    \end{tikzpicture}
-    \caption{}
-    \label{fig:del-1-oppgave-1-6}
-\end{figure}
-
-Elevene i klasse $2$A vil leie et lokale for å arrangere klassefest. De vil
-spleise på utgiftene. Ovenfor ser du grafen til en funksjon $f$. Grafen viser
-sammenhengen mellom hvor mange elever som blir med på festen, og prise hver elev
-må betale.
+Thomas kjøpte en tre år gammel bruktbil for $\num{200000}$ kroner i $2017$. Han
+antar at bilens verdi vil avta med  $\SI{10}{\percent}$ per år framover.
 
 \begin{oppgaver}
-    \Item{1} Hvor mye må hver elev betale dersom $25$ elever blir med på festen?
+    \Item{1} Hvilken av grafene $f$, $g$ og $h$ i koordinatsystemet i
+    \cref{fig:del-1-oppgave-6} viser hvordan bilens verdi vil endre seg de neste
+    åtte årene dersom Thomas har rett?
+    Begrunn svaret ditt.
 \end{oppgaver}
-
-\begin{oppgaver}
-    \Item{1} Bestem funksjonsuttrykket $f(x)$.
-\end{oppgaver}
-
-
-\Oppgave[7] % Oppgave 1.7
-
-I dag veier Ole $\SI{100}{\kg}$. Han har som mål å gå ned $\SI{16}{\kg}$ i vekt
-i løpet av de neste $40$ ukene. \bigskip
-
-Anta at vektnedgangen er lineær, og at Ole akkurat når målet sitt.
-
-\begin{oppgaver}
-    \Item{2} Sett opp en modell som viser hvor mye Ole vil veie om $x$ uker
-    dersom antakelsene er riktig.
-    \label{delopg:del-7-oppgave-1a}
-\end{oppgaver}
-
-\begin{oppgaver}
-    \Item{1} Hvor mange uker vil det gå før Ole veier $\SI{88}{\kg}$, i følge
-    modellen fra \cref{delopg:del-7-oppgave-1a}?
-\end{oppgaver}
-
-Ole vil gjerne lage en eksponentiell modell for vektnedgangen. Han antar vekten
-vil gå ned med $\SI{0.4}{\percent}$ hver uke.
-
-\begin{oppgaver}
-    \Item{2} Sett opp en eksponentiell modell ut i fra Ole's antakelse.
-    \label{delopg:del-7-oppgave-1c}
-\end{oppgaver}
-
-\begin{oppgaver}
-    \Item{2} I hvilken uke vil Ole gå mest ned i vekt, ifølge modellen fra
-    \cref{delopg:del-7-oppgave-1c}?
-    Vil han nå målet sitt hvis vektnedgangen følger denne modellen?
-\end{oppgaver}
-
-
-\Oppgave[4] % Oppgave 1.8
 
 \begin{figure}[H]
-    \centering
-    \begin{subfigure}[b]{0.32\textwidth}
-        \centering
-        \tikzsetnextfilename{Forkurs-1p-2p-laererutdanning-2018-V-oppgave-1-8a}
-        \polygons{1}
-        \caption{}
-        \label{fig:del-1-oppgave-8-a}
-    \end{subfigure}\hfill%
-    \begin{subfigure}[b]{0.32\textwidth}
-        \centering
-        \tikzsetnextfilename{Forkurs-1p-2p-laererutdanning-2018-V-oppgave-1-8b}
-        \polygons{2}
-        \caption{}
-        \label{fig:del-1-oppgave-8-b}
-    \end{subfigure}\hfill%
-    \begin{subfigure}[b]{0.32\textwidth}
-        \centering
-        \tikzsetnextfilename{Forkurs-1p-2p-laererutdanning-2018-V-oppgave-1-8c}
-        \polygons{3}\vspace{-0.45cm}
-        \caption{}
-        \label{fig:del-1-oppgave-8-c}
-    \end{subfigure}
-    \caption{}\label{fig:del-1-oppgave-8}
+  \tikzsetnextfilename{Forkurs-1p-2p-laererutdanning-2017-V-oppgave-1-6}
+  \begin{tikzpicture}
+    \begin{axis}[
+      Eksamen1,
+      ytick={0,2,...,20},
+      yticklabel = {\num{\fpeval{\tick*10000}}},
+      xtick={0,1,...,8},
+      ymin=-.1,
+      ymax=23,
+      xmin=-.1,
+      xmax=9,
+      domain = 0:8,
+      ]
+      \addplot[color=maincolorMedium!30!white,thick,samples=50] {20-2*x} node[above,pos=1] {$g$};
+      \addplot[color=maincolorMedium,thick,samples=50] {20*e^(-0.2*x)} node[below,pos=0.5] {$h$};
+      \addplot[color=maincolorMedium!30!black,thick,samples=50] {20*0.9^x} node[above,pos=0.6] {$f$};
+      \node[] at (axis cs: 2.5,21) {bilens verdi (kroner)};
+      \node[] at (axis cs: 7,1.5) {År etter 2017};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{}
+  \label{fig:del-1-oppgave-6}
 \end{figure}
 
-I \cref{fig:del-1-oppgave-8} ser du tre figurer. Figurene er satt sammen av små
-sirkler. Tenk deg at du skal fortsette å lage figurer etter samme mønster.
+Anta at bilens verdi har avtatt med $\SI{15}{\percent}$ per år fra den var ny,
+og fram til Thomas kjøpte den.
 
 \begin{oppgaver}
-    \Item{3} Skriv av tabellen nedenfor, og fyll ut det som mangler. Gjør
-    beregninger, eller forklar hvordan du tenker.
+    \Item{1} Sett opp et uttrykk som Thomas kan bruke for å regne ut hvor mye
+    bilen var verdt da den var ny.
 \end{oppgaver}
+
+
+\Oppgave[4] % Oppgave 1.7
+
+Et firma selger postkassestativ og postkasser.
+
+\begin{itemize}
+    \item Petter og naboene hans kjøpte ett postkassestativ og tre like
+      postkasser. De betalte til sammen $\num{12850}$ kroner.
+    %
+    \item Morten og naboene hans kjøpte ett postkassestativ og seks like
+      postkasser. De betalte til sammen $\num{19000}$ kroner.
+\end{itemize}
+
+\begin{oppgaver}
+    \Item{1} Hvor mye koster ett postkassestativ, og hvor mye koster én
+    postkasse?
+\end{oppgaver}
+
+\begin{oppgaver}
+    \Item{1}
+    Bestem en lineær modell som viser sammenhengen mellom antall postkasser og
+    samlet pris for stativet og postkassene. \label{oppgave:del-1-oppgave-7b}
+\end{oppgaver}
+
+\begin{oppgaver}
+  \Item{2} Bruk modellen fra \cref{oppgave:del-1-oppgave-7b} til å bestemme
+  prisen for et stativ med åtte
+    postkasser.
+\end{oppgaver}
+
+\begin{center}
+    \includegraphics[scale=0.5]{postkasse.jpg}
+\end{center}
+
+
+\Oppgave[2] % Oppgave 1.8
+\points*{2}
+
+I en bolle med gullfisk er det $\SI{25}{\percent}$ av typen Oranda. Det blir så
+sluppet oppi like mange nye fisker av typen Oranda som det var der fra før.
+\medskip
+
+Hvor mange prosent av gullfiskene i bollen er nå av typen Oranda?
+
+\begin{center}
+    \tikz\node[circle,draw,fill=black,
+           text=white,
+           path picture={
+               \node at (path picture bounding box.center){
+                   \includegraphics[width=4cm]{oranda.jpg}
+               };
+           }]{\phantom{heeelllo0000000000}};
+\end{center}
+
+
+\Oppgave[2] % Oppgave 1.9
+\points*{2}
+
+Ved en skole ble $\num{155}$ tilfeldige elever spurt om reisetid i minutter fra
+bosted til skole. Se \cref{table:del-1-oppgave-1.9}.
 
 \begin{table}[H]
-    \centering
     \caption{}
-    \begin{tabular}{| S[table-format=1.0] | S[table-format=2.0] |}
-      \tableHeaders{Figur}{Antall sirkler}
-           1   &  6 \\
-           2   & 10 \\
-           3   & 14 \\
-           4   &    \\
-           5   &    \\
-         {$n$} &    \\ \hline
+    \label{table:del-1-oppgave-1.9}
+    \begin{tabular}{|c | S[table-format=3.0]|}
+         \tableHeaders{Reisetid i minutt}{Frekvens}
+         $\left[\phantom{1}0, 10 \right\rangle$ & 25 \\
+         $\left[10, 20 \right\rangle$ & 50 \\
+         $\left[20, 40 \right\rangle$ & 60 \\
+         $\left[40, 80 \right\rangle$ & 20 \\
+         \tableHeaders{Totalt}{155}
     \end{tabular}
-    \label{tab:del-1-oppgave-1.8}
 \end{table}
 
-\begin{oppgaver}
-    \Item{1} Hvor mange sirkler vil det være i figur nummer $100$?
-\end{oppgaver}
-
+Bestem medianen for datamaterialet.
