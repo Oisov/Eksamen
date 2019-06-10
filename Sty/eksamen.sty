@@ -53,6 +53,7 @@
     % store the externalized files in the following folder
     % (this folder must already exist; otherwise you will get an error)
     \tikzsetexternalprefix{img/}
+    \usepackage{graphicx}
 
 
 % Allows the top and bottom text
@@ -291,6 +292,7 @@ picture,overlay,baseline=-\baselineskip]
   \bgroup\centering
   \vspace*{-4cm}
   \renewcommand{\arraystretch}{1.5}
+  \thispagestyle{empty}
   \begin{tabularx}{\textwidth}{|p{3cm}|X|}\hline
     \multicolumn{2}{|l|}{\cellcolor{\maincolor}{\Large\textbf{Prøveinformasjon\vphantom{$\Bigg|$}}} }  \\ \hline
     \textbf{Prøvetid:}  &  #2 timer \\
@@ -329,7 +331,7 @@ picture,overlay,baseline=-\baselineskip]
     \textbf{Opplysninger} &\vspace*{-\baselineskip} \begin{itemize}
         #5
       \item Andre bilder, tegninger og grafiske framstillinger:
-        Utdanningsdirektoratet.
+        Utdanningsdirektoratet.%
     \end{itemize}
     \\ \hline
     \end{tabularx}
@@ -631,4 +633,3 @@ picture,overlay,baseline=-\baselineskip]
             }
     },
 }
-
