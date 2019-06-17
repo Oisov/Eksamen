@@ -183,7 +183,7 @@
   \ifthenelse{\arabic{tittel}<1}{}{Del \arabic{tittel}}  }
   \rhead{ \Labelfire }
   %
-  \lfoot{ \eksamenOrProve \ \ \Labeltre }
+  \lfoot{ \ExamOrProveText \ \ \Labeltre }
   \cfoot{}
   \rfoot{Side~\thepage\ifthenelse{\arabic{tittel}<1}{}{~av~\totalpages}}
 }
@@ -232,7 +232,9 @@
   \end{tikzpicture}
 }
 
-\newcommand{\Eksamen}[5]{%
+\newcommand{\makeLower}[1]{\begingroup\protected@edef\x{\endgroup\protect\MakeLowercase{#1}}\x}
+
+\NewDocumentCommand{\Eksamen}{m m m m m O{O}}{%
   \def\Year{#5}
   \pagenumbering{roman}
   \pagestyle{plain}
@@ -243,7 +245,7 @@
       \definecolor{maincolorMedium}{HTML}{a757b2}%
       \definecolor{maincolorDark}{HTML}{9637a0}%
       \newcommand{\maincolor}{F}\def\Label{1P + 2P}%
-    \def\Labeltre{Matematikk 1P og 2P Forkurs Lærerutdanningene  }}%
+    \def\Labeltre{\small Matematikk 1P og 2P Forkurs Lærerutdanningene  }}%
     {U}{\newcommand{\maincolor}{U}\def\Label{}%
     \def\Labeltre{MAT0010 Matematikk}}%
     {P}{\newcommand{\maincolor}{P}\def\Label{$#2$P}%
@@ -264,7 +266,12 @@
     {V}{\def\Labelto{ Vår } \def\Labelfire{Våren \Year}}%
   }[\def\Labelto{ #3 } \def\Labelfire{Høsten \Year}]%
 
-  \headerImg{\eksamenOrProve}{#4}
+  \IfStrEqCase{#6}{%
+    {O}{\def\ExamOrProveText{\eksamenOrProve}}%
+    {U}{\def\ExamOrProveText{Utsatt~\eksamenOrProve}}%
+  }[\def\ExamOrProveText{\eksamenOrProve}]
+
+  \headerImg{\ExamOrProveText}{#4}
 
   \medskip
 
@@ -298,7 +305,7 @@
 %                     EXAM INFORMATION (PAGE 2)                                %
 %==============================================================================%
 
-\newcommand{\tinyurl}[2]{\bgroup\scriptsize \url{#1}(#2) \egroup}
+\newcommand{\tinyurl}[2]{\bgroup\scriptsize \url{#1} (#2)\egroup}
 
 \newcommand{\ExamInfo}[5]{%
   \bgroup\centering
