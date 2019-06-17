@@ -1,0 +1,203 @@
+%==============================================================================%
+%            PRØVE | FORKURS 1P-2P LÆRERUTDANNING | V2017 | UTSATT             %
+%==============================================================================%
+%
+% __/\\\\\\\\\\\\____________________/\\\\\\___________________/\\\_
+%  _\/\\\////////\\\_________________\////\\\_______________/\\\\\\\_
+%   _\/\\\______\//\\\___________________\/\\\______________\/////\\\_
+%    _\/\\\_______\/\\\_____/\\\\\\\\_____\/\\\__________________\/\\\_
+%     _\/\\\_______\/\\\___/\\\/////\\\____\/\\\__________________\/\\\_
+%      _\/\\\_______\/\\\__/\\\\\\\\\\\_____\/\\\__________________\/\\\_
+%       _\/\\\_______/\\\__\//\\///////______\/\\\__________________\/\\\_
+%        _\/\\\\\\\\\\\\/____\//\\\\\\\\\\__/\\\\\\\\\_______________\/\\\_
+%         _\////////////_______\//////////__\/////////________________\///_
+%
+%==============================================================================%
+%                              UTEN HJELPEMIDDEL                               %
+%==============================================================================%
+\Del{u}
+
+
+%==============================================================================%
+%                                 OPPGAVE 1.1                                  %
+%==============================================================================%
+\Oppgave[1] \points*{1}
+
+Regn ut og skriv svaret på standardform
+%
+\begin{equation*}
+  \num{8.4e7} - \num{5.0e6}
+\end{equation*}
+
+
+%==============================================================================%
+%                                 OPPGAVE 1.2                                  %
+%==============================================================================%
+\Oppgave[5]
+
+Noen elever undersøkte hvor mange personer det var i hver enkelt bil som
+parkerte ved skolen en bestemt dag. Resultatet av undersøkelsen er vist i
+\cref{tab:Forkurs-2017-H-oppgave-1.2} nedenfor.
+
+\begin{table}[H]
+    \centering
+    \caption{}
+    \label{tab:Forkurs-1p-2p-laererutdanning-2017-V-U-oppgave-1-2}
+    \begin{tabular}{|S[table-format=1.0]|S[table-format=2.0]|}
+         \tableHeaders{Antall personer i bilen}{Antall biler}
+         1 &  83 \\
+         2 &  22 \\
+         3 &   9 \\
+         4 &   4 \\
+         5 &   2 \\ \hline
+    \end{tabular}
+\end{table}
+
+%==============================================================================%
+%                                 OPPGAVE 1.3                                  %
+%==============================================================================%
+\Oppgave[3]
+
+$2015$ er nå satt som basisår for konsumprisindeksen. I $130$ var
+konsumprisindeksen $\num{3,0}$. Lars hadde da en nominell lønn på $3000$ kroner.
+
+\begin{oppgaver}
+  \Item{1} Bestem reallønnen til Lars i $1930$.
+\end{oppgaver}
+
+\begin{oppgaver}
+  \Item{2} Hva måtte din nominelle lønn vært i $2015$ dersom kjøpekraften din
+  dete året skulle være lik kjøpekraften til Lars i $1930$?
+\end{oppgaver}
+
+%==============================================================================%
+%                                 OPPGAVE 1.4                                  %
+%==============================================================================%
+\Oppgave[3]
+
+Noen venner vil dra på tur i høstferien. De vil leie en hytte og en båt. Det
+koster $2000$ kroner å leie hytten og $1000$ kroner å leie båten. Utgiftene skal
+deles likt mellom dem som blir med på turen.
+
+\begin{oppgaver}
+  \Item{1} Hvor mange må minst bli med for at hver av dem ikke skal måtte betale
+  mer enn 400 kroner?
+\end{oppgaver}
+
+\begin{oppgaver}
+  \Item{1} Bestem en modell $U(x)$ som viser hvor mye hver person må betale
+  dersom $x$ personer blir med.
+\end{oppgaver}
+
+\begin{oppgaver}
+  \Item{1} Hvilken av de to grafene fra \cref{fig:Forkurs-2017-H-oppgave-2.2}
+  beskriver situasjonen ovenfor best? Begrunn svaret ditt.
+\end{oppgaver}
+
+\begin{figure}[H]
+  \tikzsetnextfilename{Forkurs-1p-2p-laererutdanning-2017-V-U-oppgave-1-4}
+  \begin{tikzpicture}
+    \def\prisBil{1000}\def\prisBaat{2000}\def\prisTotalt{\prisBil+\prisBaat}
+    \def\prisPerPers{400}
+    \pgfmathsetmacro{\antallPersoner}{\prisTotalt/\prisPerPers}
+
+    \def\scaleNum{1000}
+    \pgfmathsetmacro{\prisBilC}{\prisBil/\scaleNum}
+    \pgfmathsetmacro{\prisBaatC}{\prisBaat/\scaleNum}
+    \pgfmathsetmacro{\prisTotaltC}{\prisBilC+\prisBaatC}
+    \pgfmathsetmacro{\prisPerPersC}{\prisPerPers/\scaleNum}
+    \pgfmathsetmacro{\antallPersonerC}{\prisTotaltC/\prisPerPersC}
+    \begin{axis}[
+      Eksamen1,
+      ytick={0,0.5,...,\prisTotaltC+1},
+      yticklabel = {\num{\fpeval{\tick*\scaleNum}}},
+      xtick={0,...,11},
+      xticklabel = {\phantom{\tick}},
+      ymin=-.1,
+      ymax=\prisTotaltC+1.5,
+      xmin=-.1,
+      xmax=10.9,
+      domain = 1:\antallPersonerC,
+      ]
+      \addplot[color=maincolorMedium!30!white,thick,samples=50] {\prisTotaltC/x}
+        node[below=1cm,pos=0.2] {Graf $2$};
+      \addplot[color=maincolorMedium,thick,samples=50] {\prisTotaltC + (1 -
+        x)*\prisPerPersC} node[above right,pos=0.5] {Graf $1$};
+      \node[] at (axis cs: 3,4) {Pris per person (kroner)};
+      \node[] at (axis cs: 9,0.75) {Antall personer};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{}
+  \label{fig:Forkurs-1p-2p-laererutdanning-2017-V-U-oppgave-1-4}
+\end{figure}
+
+
+%==============================================================================%
+%                                 OPPGAVE 1.5                                  %
+%==============================================================================%
+\Oppgave[5]
+
+En bokklubb har i dag $\num{8000}$. Det er satt opp to ulike modeller for å
+beskrive hvordan medlemstallet vil endre seg de neste årene.
+
+Ifølge modell $A$ vil det om $x$ år være $A(x)$ medlemmer i bokklubben, der
+%
+\begin{equation*}
+  A(x) = \num{1200}x + \num{8000}
+\end{equation*}
+%
+Ifølge modell $B$ vile det om $x$ være $B(x)$ medlemmer i bokklubben, der
+%
+\begin{equation*}
+  B(x) = \num{8000} \cdot \num{1.15}^x
+\end{equation*}
+%
+\begin{oppgaver}
+  \Item{2} Beskriv hvordan medlemstallet vil endre seg ifølge modell $A$ og ifølge
+  modell $B$.
+\end{oppgaver}
+
+\begin{oppgaver}
+  \Item{1} Bestem $A(0)$, $B(0)$, $A(1)$ og$B(1)$.
+\end{oppgaver}
+
+\begin{oppgaver}
+  \Item{2} Skisser grafen til $A$ og grafen til $B$ i samme koordinatsystem.
+\end{oppgaver}
+
+
+%==============================================================================%
+%                                 OPPGAVE 1.6                                  %
+%==============================================================================%
+\Oppgave[2] \points*{2}
+
+
+Ved en skole er $\SI{40}{\percent}$ av elevene gutter. $\SI{50}{\percent}$ av
+jentene spiller håndball. Ingen gutter spiller håndball. \bigskip
+
+Hvor mange prosent av elevene ved skolen spiller håndball?
+
+
+%==============================================================================%
+%                                 OPPGAVE 1.7                                  %
+%==============================================================================%
+\Oppgave[5]
+
+Ovenfor ser du tre figurer. Figurene er satt sammen av små kvadrater. Hvert
+kvadrat har areal $1$. Tenk deg at du skal fortsette å lage figurer etter samme
+mønster.
+
+\begin{oppgaver}
+  \Item{1} Bestem omkretsen av $(4)$.
+\end{oppgaver}
+
+\begin{oppgaver}
+  \Item{1} Bestemet uttrykk for omkretsen av $(n)$, uttrykt ved $n$.
+\end{oppgaver}
+
+En figur som følger samme mønster som ovenfor har en omkrets på $1024$.
+
+\begin{oppgaver}
+  \Item{2} Hvor mange rader med små kvadrater er det i denne figuren?
+\end{oppgaver}
+

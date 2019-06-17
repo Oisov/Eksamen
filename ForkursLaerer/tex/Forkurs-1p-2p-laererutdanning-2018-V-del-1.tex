@@ -23,6 +23,11 @@
 %==============================================================================%
 \Oppgave[2] \points*{2}
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{apples.png}
+\end{figure}
+
 I en kasse ligger det $60$ epler. $\SI{20}{\percent}$ av eplene er grønne,
 $\cfrac{7}{12}$ er røde og resten er gule. Hvor mange epler er gule?
 
@@ -56,22 +61,22 @@ Bestem reallønna til Svein i $2008$.
 \Oppgave[3] \points*{3}
 
 Ved en skole er det $150$ ansatte. Skolen har et treningsrom som alle ansatte
-kan benytte. Tabellen nedenfor viser hvor ofte de ansatte benyttet
-treningsrommet i løpet av en uke.
+kan benytte. \Cref{tab:Forkurs-1p-2p-laererutdanning-2018-V-U-oppgave-1-4}
+nedenfor viser hvor ofte de ansatte benyttet treningsrommet i løpet av en uke.
 
 \begin{table}[H]
   \centering
   \caption{}
   \begin{tabular}{| S[table-format=2.0] | S[table-format=2.0] |}
     \tableHeaders{Antall ganger}{Antall ansatte}
-    0 & 80 \\
-    1 & 10 \\
-    2 & 15 \\
-    3 & 25 \\
-    4 &  5 \\
+    0 & 80 \\ \hline
+    1 & 10 \\ \hline
+    2 & 15 \\ \hline
+    3 & 25 \\ \hline
+    4 &  5 \\ \hline
     5 & 15 \\ \hline
   \end{tabular}
-  \label{tab:del-1-oppgave-1.4}
+  \label{tab:Forkurs-1p-2p-laererutdanning-2018-V-U-oppgave-1-4}
 \end{table}
 
 
@@ -82,7 +87,7 @@ treningsrommet i løpet av en uke.
 
 \begin{figure}[H]
   \centering
-  \tikzsetnextfilename{Forkurs-1p-2p-laererutdanning-2018-V-oppgave-1-5}
+  \tikzsetnextfilename{Forkurs-1p-2p-laererutdanning-2018-V-U-oppgave-1-5}
   \begin{tikzpicture}
     \edef\BCxAB{2}
     \edef\ArealABC{10}
@@ -92,19 +97,20 @@ treningsrommet i løpet av en uke.
     \tkzDefPoint(\AB,0){B}
     \tkzDefPoint(\AB,\BC){C}
 
-    \tkzMarkRightAngle[scale=2](A,B,C)
-    \tkzDrawPolygon(A,B,C)
+    \tkzMarkRightAngle[thick,color=maincolorMedium,scale=2](A,B,C)
+    \tkzDrawPolygon[thick,color=maincolorMedium](A,B,C)
 
     \tkzLabelPoint[below left](A){$A$}
     \tkzLabelPoint[below right](B){$B$}
     \tkzLabelPoint[above right](C){$C$}
   \end{tikzpicture}
   \caption{}
-  \label{fig:del-1-oppgave-1-5}
+  \label{fig:Forkurs-1p-2p-laererutdanning-2018-V-U-oppgave-1-5}
 \end{figure}
 
 Arealet av en trekant er $\SI{49}{\cm\squared}$, $BC$ er dobbelt så langt som
-$AB$. Se skissen ovenfor. Bestem lengden av $AB$.
+$AB$. Se \cref{fig:Forkurs-1p-2p-laererutdanning-2018-V-U-oppgave-1-5} ovenfor.
+Bestem lengden av $AB$.
 
 
 %==============================================================================%
@@ -114,7 +120,7 @@ $AB$. Se skissen ovenfor. Bestem lengden av $AB$.
 
 \begin{figure}[H]
   \centering
-  \tikzsetnextfilename{Forkurs-1p-2p-laererutdanning-2018-V-oppgave-1-6}
+  \tikzsetnextfilename{Forkurs-1p-2p-laererutdanning-2018-V-U-oppgave-1-6}
   \begin{tikzpicture}
     \begin{axis}[
       Eksamen1,
@@ -138,13 +144,13 @@ $AB$. Se skissen ovenfor. Bestem lengden av $AB$.
     \end{axis}
   \end{tikzpicture}
   \caption{}
-  \label{fig:del-1-oppgave-1-6}
+  \label{fig:Forkurs-1p-2p-laererutdanning-2018-V-U-oppgave-1-6}
 \end{figure}
 
 Elevene i klasse $2$A vil leie et lokale for å arrangere klassefest. De vil
-spleise på utgiftene. Ovenfor ser du grafen til en funksjon $f$. Grafen viser
-sammenhengen mellom hvor mange elever som blir med på festen, og prise hver elev
-må betale.
+spleise på utgiftene. Ovenfor ser du grafen til en funksjon $f$. Grafen i
+\cref{fig:Forkurs-1p-2p-laererutdanning-2018-V-U-oppgave-1-6} viser sammenhengen
+mellom hvor mange elever som blir med på festen, og prise hver elev må betale.
 
 \begin{oppgaver}
   \Item{1} Hvor mye må hver elev betale dersom $25$ elever blir med på festen?
@@ -204,7 +210,7 @@ vil gå ned med $\SI{0.4}{\percent}$ hver uke.
     \tikzsetnextfilename{Forkurs-1p-2p-laererutdanning-2018-V-oppgave-1-8a}
     \polygons{1}
     \caption{}
-    \label{fig:del-1-oppgave-8-a}
+    \label{subfig:Forkurs-1p-2p-laererutdanning-2018-V-oppgave-1-8a}
   \end{subfigure}\hfill%
   %
   \begin{subfigure}[b]{0.32\textwidth}
@@ -212,7 +218,7 @@ vil gå ned med $\SI{0.4}{\percent}$ hver uke.
     \tikzsetnextfilename{Forkurs-1p-2p-laererutdanning-2018-V-oppgave-1-8b}
     \polygons{2}
     \caption{}
-    \label{fig:del-1-oppgave-8-b}
+    \label{subfig:Forkurs-1p-2p-laererutdanning-2018-V-oppgave-1-8b}
   \end{subfigure}\hfill%
   %
   \begin{subfigure}[b]{0.32\textwidth}
@@ -220,18 +226,20 @@ vil gå ned med $\SI{0.4}{\percent}$ hver uke.
     \tikzsetnextfilename{Forkurs-1p-2p-laererutdanning-2018-V-oppgave-1-8c}
     \polygons{3}\vspace{-0.45cm}
     \caption{}
-    \label{fig:del-1-oppgave-8-c}
+    \label{subfig:Forkurs-1p-2p-laererutdanning-2018-V-oppgave-1-8c}
   \end{subfigure}
   %
-  \caption{}\label{fig:del-1-oppgave-8}
+  \caption{}\label{fig:Forkurs-1p-2p-laererutdanning-2018-V-oppgave-1-8}
 \end{figure}
 
-I \cref{fig:del-1-oppgave-8} ser du tre figurer. Figurene er satt sammen av små
-sirkler. Tenk deg at du skal fortsette å lage figurer etter samme mønster.
+I \cref{fig:Forkurs-1p-2p-laererutdanning-2018-V-oppgave-1-8} ser du tre
+figurer. Figurene er satt sammen av små sirkler. Tenk deg at du skal fortsette å
+lage figurer etter samme mønster.
 
 \begin{oppgaver}
-    \Item{3} Skriv av tabellen nedenfor, og fyll ut det som mangler. Gjør
-    beregninger, eller forklar hvordan du tenker.
+  \Item{3} Skriv av \cref{tab:Forkurs-1p-2p-laererutdanning-2018-V-oppgave-1-8}
+    nedenfor, og fyll ut det som mangler. Gjør beregninger, eller forklar
+    hvordan du tenker.
 \end{oppgaver}
 
 \begin{table}[H]
@@ -239,14 +247,14 @@ sirkler. Tenk deg at du skal fortsette å lage figurer etter samme mønster.
   \caption{}
   \begin{tabular}{| S[table-format=1.0] | S[table-format=2.0] |}
     \tableHeaders{Figur}{Antall sirkler}
-    1   &  6 \\
-    2   & 10 \\
-    3   & 14 \\
-    4   &    \\
-    5   &    \\
+      1   &  6 \\ \hline
+      2   & 10 \\ \hline
+      3   & 14 \\ \hline
+      4   &    \\ \hline
+      5   &    \\ \hline
     {$n$} &    \\ \hline
   \end{tabular}
-  \label{tab:del-1-oppgave-1.8}
+  \label{tab:Forkurs-1p-2p-laererutdanning-2018-V-oppgave-1-8}
 \end{table}
 
 \begin{oppgaver}

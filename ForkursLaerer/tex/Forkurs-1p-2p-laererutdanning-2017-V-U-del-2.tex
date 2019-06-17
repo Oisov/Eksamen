@@ -1,0 +1,279 @@
+%==============================================================================%
+%            PRØVE | FORKURS 1P-2P LÆRERUTDANNING | V2017 | UTSATT             %
+%==============================================================================%
+%
+% __/\\\\\\\\\\\\____________________/\\\\\\______________/\\\\\\\\\_____
+%  _\/\\\////////\\\_________________\////\\\____________/\\\///////\\\___
+%   _\/\\\______\//\\\___________________\/\\\___________\///______\//\\\__
+%    _\/\\\_______\/\\\_____/\\\\\\\\_____\/\\\_____________________/\\\/___
+%     _\/\\\_______\/\\\___/\\\/////\\\____\/\\\__________________/\\\//_____
+%      _\/\\\_______\/\\\__/\\\\\\\\\\\_____\/\\\_______________/\\\//________
+%       _\/\\\_______/\\\__\//\\///////______\/\\\_____________/\\\/___________
+%        _\/\\\\\\\\\\\\/____\//\\\\\\\\\\__/\\\\\\\\\_________/\\\\\\\\\\\\\\\_
+%         _\////////////_______\//////////__\/////////_________\///////////////_
+%
+%==============================================================================%
+%                               MED HJELPEMIDLER                               %
+%==============================================================================%
+\Del*{m}
+
+
+%==============================================================================%
+%                                 OPPGAVE 2.1                                  %
+%==============================================================================%
+\Oppgave[3]
+
+Det er omtrent $\num{5.3}$~millioner innbyggere i Norge. I gjennomsnitt kaster
+hver innbygger $180$~plastposer hvert år. Normal tykkelse på plasten i en pose
+er $\SI{0.035}{\milli\metre}$. \bigskip
+
+Tenk deg at vi legger alle disse plastposene oppå hverandre i en stabel.
+
+\begin{oppgaver}
+  \Item{1} Omtrent hvor høy ville stabelen bli?
+\end{oppgaver}
+
+Norges høyeste fjell, Galdhøpiggen, er $\SI{2469}{\m}$.
+
+\begin{oppgaver}
+  \Item{2} Hvor mange dager ville det gå før stabelen var like høy som
+  Galdhøpiggen, dersom vi antar det kastes like mange poser hver dag?
+\end{oppgaver}
+
+
+%==============================================================================%
+%                                 OPPGAVE 2.2                                  %
+%==============================================================================%
+\Oppgave[4]
+
+Figuren viser en $20$-sidet terning der tallene $1$, $2$, $3$, $20$ er skrevet
+på sidene. Når du kaster terningen, er hvert av de $20$ utfallene like
+sannsynlig.  Tenk deg at du skal kaste terningen to ganger.
+
+\begin{oppgaver}
+  \Item{1} Bestem sannsynligheten for at du kommer til å få tallet $20$ i første
+  kast.
+\end{oppgaver}
+
+\begin{oppgaver}
+  \Item{1} Bestem sannsynligheten for at du kommer til å få tallet $20$ i begge
+  kastene.
+\end{oppgaver}
+
+\begin{oppgaver}
+  \Item{2} Bestem sannsynligheten for at summen av tallene du får i første og
+  andre kast, blir mindre enn seks.
+\end{oppgaver}
+
+
+
+%==============================================================================%
+%                                 OPPGAVE 2.3                                  %
+%==============================================================================%
+\Oppgave[4]
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    \def\radius{2}
+    \pgfmathsetmacro{\ED}{2*\radius}
+    \pgfmathsetmacro{\MC}{2*\radius}
+    \def\AM{\ED} \def\MB{\AM}
+
+    \tkzDefPoint(0,0){A}
+    \tkzDefPoint(\AM,0){M}
+    \tkzDefPoint(\AM+\MB,0){B}
+    \tkzDefPoint(\AM,\radius){S}
+    \tkzDefPoint(\AM,\MC){C}
+
+    \tkzDefMidPoint(A,C) \tkzGetPoint{E}
+    \tkzDefMidPoint(B,C) \tkzGetPoint{D}
+
+    \tkzDrawPolygon[color=maincolorDark, ultra thick, fill=maincolorLight](A,B,C)
+    \tkzDrawSector[color=maincolorDark, thick,fill=maincolorMedium](S,E)(D)
+
+    \tkzLabelPoint[below left](A){$A$}
+    \tkzLabelPoint[below right](B){$B$}
+    \tkzLabelPoints[above](S,C)
+    \tkzLabelPoint[below](M){$M$}
+    \tkzLabelPoint[above left](E){$E$}
+    \tkzLabelPoint[above right](D){$D$}
+  \end{tikzpicture}
+  \caption{}
+  \label{fig:Forkurs-1p-2p-laererutdanning-2017-V-U-oppgave-2-3}
+\end{figure}
+
+\Cref{fig:Forkurs-1p-2p-laererutdanning-2017-V-U-oppgave-2-3} ovenfor viser en
+likebeint trekant $ABC$.$M$ er midtpunkt på $AB$. I trekanten er det innskrevet
+en halvsirkel med sentrum i $S$ og radius $2$. Punktet $D$ ligger på $BC$, og
+punktet $E$ ligger på $AC$. $AB\parallel ED$ og $AM=ED$.
+
+\begin{oppgaver}
+    \Item{2} Forklar at $\Delta ABC$ og $\Delta EDC$ er formlike.
+\end{oppgaver}
+
+\begin{oppgaver}
+    \Item{1} Forklar at $CM = 2 CS$.
+\end{oppgaver}
+
+\begin{oppgaver}
+    \Item{2} Gjør beregninger og avgjør om arealet av halvsirkelen er mindre enn
+      halvparten av det samlede arealet av de lys lilla områdene.
+\end{oppgaver}
+
+
+%==============================================================================%
+%                                 OPPGAVE 2.4                                  %
+%==============================================================================%
+\Oppgave[5]
+
+\begin{figure}[H]
+  \centering
+  \ballgolf{5}
+  \caption{}
+  \label{fig:Forkurs-1p-2p-laererutdanning-2017-V-U-oppgave-2-4}
+\end{figure}
+
+I \cref{fig:Forkurs-1p-2p-laererutdanning-2017-V-U-oppgave-2-4} ovenfor ser du
+15 kuler. Hver kule har diameter $\SI{1.0}{\cm}$.
+
+\begin{oppgaver}
+  \Item{} Bestem det totale volumet av alle kulene, $V_K$.
+\end{oppgaver}
+
+Til høyre ovenfor ser du $15$ sirkler. Hver sirkel har diameter $\SI{1.0}{\cm}$.
+La $V_T$ være volumet av et rett trekantet prisme med grunnflate lik det samlede
+arealet av sirklene og høyde $\SI{1.0}{\cm}$.
+
+\begin{oppgaver}
+  \Item{} Bestem forholdet mellom $V_T$ og $V_K$.
+    \label{delopg:Forkurs-1p-2p-laererutdanning-2017-V-U-oppgave-2-4}
+\end{oppgaver}
+
+\begin{oppgaver}
+  \Item{} Hvor høyt må det rette trekantede prismet være for at forholdet i
+    \cref{delopg:Forkurs-1p-2p-laererutdanning-2017-V-U-oppgave-2-4} skal bli
+    lik $1$?
+\end{oppgaver}
+
+%==============================================================================%
+%                                 OPPGAVE 2.5                                  %
+%==============================================================================%
+\Oppgave[9]
+
+\Cref{tab:Forkurs-1p-2p-laererutdanning-2017-V-U-oppgave-2-5} nedenfor viser
+hvor mange personer i Norge som var $100$~år eller eldre $1$.januar noen
+utvalgte år.
+
+\begin{table}[H]
+    \caption{}
+    \label{tab:Forkurs-1p-2p-laererutdanning-2017-V-U-oppgave-2-5}
+    \begin{tabularx}{\textwidth}{|c| *{7}{Y|}} \hline \Rowcolor
+        år               &     1     &     2     &     4     &     6     &     8     &     10    &     12    \\ \hline
+        Antall personer & & & & & & & \\
+        som var $100$ år & \num{432} & \num{467} & \num{544} & \num{641} &
+        \num{736} & \num{886} & \num{942} \\
+        eller eldre  & & & & & & & \\ \hline
+    \end{tabularx}
+\end{table}
+
+\begin{oppgaver}
+  \Item{2} Bruk regresjon til å vise at funksjonen $f$ gitt ved
+  %
+  \begin{equation*}
+    f(x) = 402 \cdot \num{1.054}^x
+  \end{equation*}
+  %
+  er en god modell for antall personer som var $100$~år eller elde $x$~år etter
+  $1$.januar år~$2000$.
+\end{oppgaver}
+
+\begin{oppgaver}
+    \Item{2} Bruk graftegner til å tegne grafen til $f$ for $1 \leq x \leq 20$
+\end{oppgaver}
+
+\begin{oppgaver}
+    \Item{1} Bestem $f(17)$. Hvilken praktisk informasjon gir dette svaret?
+\end{oppgaver}
+
+\begin{oppgaver}
+    \Item{2} Bestem den gjennomsnittlige vekstfarten til funksjonen $f$ fra
+    $x=1$ til $x=16$. Hvilken praktisk informasjon gir dette svaret?
+\end{oppgaver}
+
+\begin{oppgaver}
+    \Item{2} Bestem den momentane vekstfarten til funksjonen $f$ når $x=16$.
+    Hvilken praktisk informasjon gir dette svaret?
+\end{oppgaver}
+
+
+%==============================================================================%
+%                                 OPPGAVE 2.6                                  %
+%==============================================================================%
+\Oppgave[6]
+
+Ved en skole ble $\num{200}$ elever spurt om hvor lang reisetid de har fra
+bosted til skole. Se
+\cref{tab:Forkurs-1p-2p-laererutdanning-2017-V-U-oppgave-2-6}.
+
+\begin{table}[H]
+  \caption{}
+  \label{tab:Forkurs-1p-2p-laererutdanning-2017-V-U-oppgave-2-6}
+  \begin{tabular}{|c | S[table-format=3.0]|}
+    \tableHeaders{Reisetid i minutt}{Frekvens}
+    $\left[\phantom{1}0, 10 \right\rangle$ & 20 \\
+    $\left[10, 20 \right\rangle$ & 60 \\
+    $\left[20, 40 \right\rangle$ & 80 \\
+    $\left[40, 80 \right\rangle$ & 40 \\
+    \tableHeaders{Totalt}{200}
+  \end{tabular}
+\end{table}
+
+\begin{oppgaver}
+  \Item{} Bestem gjennomsnittet for datamaterialet.
+\end{oppgaver}
+
+\begin{oppgaver}
+  \Item{} Bestem medianen for datamaterialet.
+\end{oppgaver}
+
+\begin{oppgaver}
+  \Item{} Lag et histogram som viser fordelingen av reisetider.
+\end{oppgaver}
+
+
+%==============================================================================%
+%                                 OPPGAVE 2.7                                  %
+%==============================================================================%
+\Oppgave[5] \points*{5}
+
+Et idrettslag arrangerer \enquote{Søndagstrimmen} hver uke. Hver
+deltaker løper først noen kilometer og er så med på ulike aktiviteter i
+idrettshallen. Deltakerne får poeng for hver kilometer de løper, og for
+aktivitetene de deltar i. \bigskip
+
+Lokale bedrifter sponser arrangementet med et kronebeløp
+(\enquote{sponsorkroner}) tilsvarende en prosentdel av poengene deltakerne
+oppnår. \bigskip
+
+Du skal lage et regneark som vist nedenfor. I de hvite cellene skal idrettslaget
+registrere opplysninger. I de lilla cellene skal du lage formler. \bigskip
+
+\begin{itemize}
+  \item Antall poeng per kilometer og hvor stor prosentdel av poengsummene som
+    sponses, varierer fra uke til uke og skal registreres i celle B$4$ og B$5$.
+    %
+  \item Personer under 16 år regnes som barn. Når alderen registreres, skal
+    regnearket automatisk plassere deltakeren i klasse \enquote{Barn} eller
+    klasse \enquote{Voksen}.
+    %
+  \item Samlet poengsum for hver deltaker er summen av poengene for kilometerne
+    deltakeren har løpt, og poengene deltakeren har oppnådd i aktivitetene.
+\end{itemize}
+
+
+
+
+
+
+

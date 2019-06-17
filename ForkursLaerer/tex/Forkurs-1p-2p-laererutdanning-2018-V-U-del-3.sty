@@ -1,0 +1,59 @@
+%          _\|/_
+%          (o o)
+%  +----oOO-{_}-OOo----------------------+
+%  |                                     |
+%  |          FORKURS H2018 STY          |
+%  |                                     |
+%  +-------------------------------------+
+
+% Used to draw the blurred frame in 2.1
+\usetikzlibrary{shadows.blur}
+
+\newcommand{\drawCircles}[1]{%
+  \begin{tikzpicture}[scale=0.75]
+    \pgfmathtruncatemacro{\iEnd}{#1+2}
+    \pgfmathtruncatemacro{\jEnd}{#1+2}
+    {
+      \foreach \i in {1,...,\iEnd}
+      {
+        \foreach \j in {1,...,\jEnd}
+        \draw [fill=maincolorLight] (\i,\j) circle [radius=0.4];
+      }
+    }
+    \pgfmathtruncatemacro{\iEnd}{#1+1}
+    \pgfmathtruncatemacro{\jEnd}{#1+1}
+    {
+      \foreach \i in {2,...,\iEnd}
+      {
+        \foreach \j in {2,...,\jEnd}
+        \draw [fill=white] (\i,\j) circle [radius=0.4];
+      }
+    }
+  \end{tikzpicture}
+}
+
+\tikzset{laser beam action/.style={
+    line width=\pgflinewidth+\pgfkeysvalueof{/tikz/laser/increment},
+    draw opacity=\pgfkeysvalueof{/tikz/laser/opacity},
+    draw=\pgfkeysvalueof{/tikz/laser/color},#1
+  },
+  laser beam recurs/.code 2 args={%
+    \pgfmathtruncatemacro{\level}{#1-1}%
+    \ifnum\level=0%
+    \pgfkeysalso{/tikz/preaction={laser beam action=#2}}%
+    \else%
+    \pgfkeysalso{/tikz/preaction={laser beam action=#2,laser beam recurs={\level}{#2}}}
+    \fi
+  },
+  laser beam/.style={preaction={laser beam recurs={\pgfkeysvalueof{/tikz/laser/iterations}}{#1}},draw opacity=1,draw=#1},
+  blurry beam/.style 2 args={/utils/exec=\tikzset{laser/.cd,#2},
+  preaction={laser beam recurs={\pgfkeysvalueof{/tikz/laser/iterations}}{#1}}},
+  laser/.cd,increment/.initial=0.2pt,opacity/.initial=0.1,
+  color/.initial=black,iterations/.initial=10
+}
+
+\newcommand{\midlabelline}[3]{
+   \node[fill=white,inner sep=10pt] (midlabel) at ($ (#1)!.5!(#2) $) {#3};
+   \draw[|-,thick] (#1) --  (midlabel);
+   \draw[-|,thick] (midlabel) -- (#2);
+}

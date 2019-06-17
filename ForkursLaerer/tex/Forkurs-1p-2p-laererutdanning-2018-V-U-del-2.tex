@@ -1,0 +1,344 @@
+%==============================================================================%
+%            PRØVE | FORKURS 1P-2P LÆRERUTDANNING | V2018 | UTSATT             %
+%==============================================================================%
+%
+% __/\\\\\\\\\\\\____________________/\\\\\\______________/\\\\\\\\\_____
+%  _\/\\\////////\\\_________________\////\\\____________/\\\///////\\\___
+%   _\/\\\______\//\\\___________________\/\\\___________\///______\//\\\__
+%    _\/\\\_______\/\\\_____/\\\\\\\\_____\/\\\_____________________/\\\/___
+%     _\/\\\_______\/\\\___/\\\/////\\\____\/\\\__________________/\\\//_____
+%      _\/\\\_______\/\\\__/\\\\\\\\\\\_____\/\\\_______________/\\\//________
+%       _\/\\\_______/\\\__\//\\///////______\/\\\_____________/\\\/___________
+%        _\/\\\\\\\\\\\\/____\//\\\\\\\\\\__/\\\\\\\\\_________/\\\\\\\\\\\\\\\_
+%         _\////////////_______\//////////__\/////////_________\///////////////_
+%
+%==============================================================================%
+%                               MED HJELPEMIDLER                               %
+%==============================================================================%
+\Del*{m}
+
+
+%==============================================================================%
+%                                 OPPGAVE 2.1                                  %
+%==============================================================================%
+\Oppgave[6]
+
+\begin{figure}[H]
+  \centering
+  \tikzsetnextfilename{Forkurs-1p-2p-laererutdanning-2018-V-U-oppgave-2-1}
+  \begin{tikzpicture}[scale=0.5,pics/soccer ball/.style={code={
+        \fill[gray!30!white] (0,0) circle (0.32);
+        \clip (0,0) circle (0.32);
+      \fill[black] (-1.2+1.06,-0.33+0.30) -- (-1.2+1.01,-0.33+0.17) -- (-1.2+1.14,-0.33+0.08) -- (-1.2+1.26,-0.33+0.14) -- (-1.2+1.20,-0.33+0.28) -- cycle
+        (-1.2+1.37,-0.33+0.14) -- (-1.2+1.46,-0.33+0.27) -- (-1.2+1.59,-0.33+0.27) -- (-1.2+1.41,-0.33+0.04) -- cycle
+        (-1.2+1.28,-0.33+0.38) -- (-1.2+1.22,-0.33+0.52) -- (-1.2+1.33,-0.33+0.61) -- (-1.2+1.45,-0.33+0.51) -- (-1.2+1.43,-0.33+0.37) -- cycle
+    (-1.2+0.87,-0.33+0.44) -- (-1.2+1.02,-0.33+0.40) -- (-1.2+1.10,-0.33+0.53) -- (-1.2+1.07,-0.33+0.62) -- (-1.2+0.94,-0.33+0.57) -- cycle;}},
+    declare function={pbl(\x)=-0.1*\x*\x+2*\x;}]
+    \path[blurry beam={maincolorDark}{increment=0.1pt,iterations=51,opacity=0.02},rounded corners] (-0.25,-0.25) rectangle (20.25,12.25);
+    \clip[rounded corners=1mm] (-0.25cm+5pt,-0.25cm+5pt) rectangle (20.25cm-5pt,12.25cm-5pt);
+    \draw[maincolorDark, dashed, ultra thick]   plot[smooth,domain=0:20] (\x,{pbl(\x)});
+    \path (3,{pbl(3)}) pic{soccer ball};
+    \fill[green!70!black] plot[smooth,domain=-0.25:20.25,samples=501] (\x,0.2+0.3*rnd) |- (-0.25,-0.25);
+  \end{tikzpicture}
+\caption{}
+\label{fig:Forkurs-1p-2p-laererutdanning-2018-V-U-oppgave-2-1}
+\end{figure}
+
+Arild sparket en ball. Ballen fulgte tilnærmet grafen til funksjonen $f$ gitt ved
+%
+\begin{equation*}
+  f(x) = \num{-0.1}x^2 + 2x \qquad , \qquad 0 \leq x \leq 20.
+\end{equation*}
+%
+Når ballen hadde tilbakelagt en horisontal avstand på $x$ meter, var den $f(x)$
+meter over bakken.
+
+\begin{oppgaver}
+  \Item{2} Bruk graftegner til å tegne grafen til $f$.
+\end{oppgaver}
+
+\begin{oppgaver}
+  \Item{2} Bestem toppunktet på grafen til $f$. \\
+    Hvilken praktisk informasjon gir koordinatene til dette punktet?
+\end{oppgaver}
+
+\begin{oppgaver}
+  \Item{2} Hvor langt beveget ballen seg i horisontal retning mens den var mer
+    enn fem meter over bakken?
+\end{oppgaver}
+
+
+%==============================================================================%
+%                                 OPPGAVE 2.2                                  %
+%==============================================================================%
+\Oppgave[4] \points*{4}
+
+\begin{table}[H]
+  \centering
+  \caption{}
+  \label{tab:Forkurs-1p-2p-laererutdanning-2018-V-U-oppgave-2-2}
+  \begin{tabular}{|l | S[table-format=2.0]|}
+    \tableHeaders{Lengde ($\si{\km}$)}{Antall uker}
+    $\left[\phantom{00}0,120\right\rangle$ & 60 \\
+    $\left[120,180\right\rangle$ & 60 \\
+    $\left[180,240\right\rangle$ & 60 \\
+    $\left[240,360\right\rangle$ & 20 \\
+    $\left[360,540\right\rangle$ & 20 \\
+    \hline
+  \end{tabular}
+\end{table}
+
+Et idrettslag har $200$ aktive medlemmer.
+\Cref{tab:Forkurs-1p-2p-laererutdanning-2018-V-U-oppgave-2-2} ovenfor viser hvor
+mye tid medlemmene brukte på trening i løpet av en uke. \bigskip
+
+Bestem gjennomsnitt og median for det klassedelte datamaterialet.
+
+
+\clearpage
+%==============================================================================%
+%                                 OPPGAVE 2.3                                  %
+%==============================================================================%
+\Oppgave[6]
+
+\begin{figure}[H]
+  \centering
+  \tikzsetnextfilename{Forkurs-1p-2p-laererutdanning-2018-V-U-oppgave-2-3}
+  \begin{tikzpicture}[scale=0.5]
+    \def\ASB{60} \def\CSD{\ASB} \def\radius{8}
+    \pgfmathsetmacro{\angleC}{(90-\ASB)*0.5}
+
+    \tkzDefPoint(0,0){S} % Center of circle
+
+    \tkzDefPoint(-\radius,0){s1}
+    \tkzDefPoint(\radius,0){s2}
+    \tkzDefPoint(0,\radius){s3}
+    \tkzDefPoint(0,-\radius){s4}
+
+    \tkzDefPointBy[rotation = center S angle 45](s2) \tkzGetPoint{s5}
+    \tkzDefPointBy[rotation = center S angle 180 ](s5) \tkzGetPoint{s6}
+
+    \tkzDefPointBy[rotation = center S angle \angleC](s2) \tkzGetPoint{C}
+    \tkzDefPointBy[rotation = center S angle \ASB](C) \tkzGetPoint{D}
+
+    \tkzDrawArc[color=black,dashed](S,s2)(s3)
+    \tkzInterLL(S,s5)(C,D) \tkzGetPoint{h2}
+    \tkzDrawPolygon[fill=maincolorLight](S,C,D)
+    \tkzMarkRightAngle[scale=4](C,h2,S)
+    \tkzMarkAngle[scale=1.25](C,S,D)
+    \tkzDrawSegment[dashed](S,h2)
+
+    \tkzDefPointBy[rotation = center S angle 180](C) \tkzGetPoint{A}
+    \tkzDefPointBy[rotation = center S angle 180](D) \tkzGetPoint{B}
+
+    % Draw the triangles with \DSA angle
+    \tkzDrawArc[color=black,dashed](S,s1)(s4)
+    \tkzInterLL(S,s6)(A,B) \tkzGetPoint{h1}
+    \tkzDrawPolygon[fill=maincolorLight](S,A,B)
+    \tkzMarkRightAngle[scale=4](S,h1,B)
+    \tkzMarkAngle[scale=1.25](A,S,B)
+    \tkzDrawSegment[dashed](S,h1)
+
+    % Draw the 90 degree circle sectors
+    \tkzDrawSector[rotate,fill=maincolorLight](S,s1)(-90)
+    \tkzDrawSector[rotate,fill=maincolorLight](S,s2)(-90)
+    \tkzMarkRightAngle[scale=5](s3,S,s1)
+    \tkzMarkRightAngle[scale=5](s4,S,s2)
+
+    % Label points
+    \tkzLabelPoint[left](A){$A$}
+    \tkzLabelPoint[below](B){$B$}
+    \tkzLabelPoint[right](C){$C$}
+    \tkzLabelPoint[above](D){$D$}
+    \tkzLabelPoint[below right](S){$S$}
+
+    \tkzLabelSegment[below right](S,h1){$h_1$}
+    \tkzLabelSegment[below right](S,h2){$h_2$}
+  \end{tikzpicture}
+  \caption{}
+  \label{fig:Forkurs-1p-2p-laererutdanning-2018-V-U-oppgave-2-4}
+\end{figure}
+
+Sirkelen i figuren ovenfor har sentrum i $S$ og radius $\SI{8.0}{\cm}$. \\
+$\angle ASB = \angle CSD = \SI{60}{\degree}$.
+
+\begin{oppgaver}
+  \Item{2} Bestem samlet omkrets av de fargelagte områdene i
+  \cref{fig:Forkurs-1p-2p-laererutdanning-2018-V-U-oppgave-2-4}.
+\end{oppgaver}
+
+\begin{oppgaver}
+  \Item{2} Vis at høydene $h_1$ og $h_2$ har lengde $\SI{6.9}{\cm}$.
+\end{oppgaver}
+
+\begin{oppgaver}
+  \Item{2} Bestem samlet areal av de fargelagte områdene i
+  \cref{fig:Forkurs-1p-2p-laererutdanning-2018-V-U-oppgave-2-4}.
+\end{oppgaver}
+
+
+%==============================================================================%
+%                                 OPPGAVE 2.4                                  %
+%==============================================================================%
+\Oppgave[6]
+
+I en stor kommune skal $\num{1000}$ innbyggere testes for å finne ut om de har
+en bestemt sykdom. De $\num{1000}$ innbyggerne trekkes ut tilfeldig. Fra
+tidligere undersøkelser vet man at
+
+\begin{itemize}
+  \item $\SI{ 1}{\percent}$ av alle personer har denne sykdommen.
+  \item $\SI{80}{\percent}$ av personene som har denne sykdommen, får positivt
+    utslag på testen.
+  \item $\SI{10}{\percent}$ av personene som ikke har denne sykdommen, får
+    positivt utslag på testen.
+\end{itemize}
+
+Vi antar at tallene gjelder for de $\num{1000}$ innbyggerne som er
+trukket ut.
+
+\begin{oppgaver}
+  \Item{2} Tegn av og fyll ut
+  kryss\cref{table:Forkurs-1p-2p-laererutdanning-2018-V-U-oppgave-2-4} nedenfor.
+\end{oppgaver}
+
+\begin{table}[H]
+  \caption{}
+  \label{table:Forkurs-1p-2p-laererutdanning-2018-V-U-oppgave-2-4}
+  \begin{tabular}{| l | c | c | c |}
+                   \hline \Rowcolor & {Syk\headerstrut} & {Ikke syk} & {Sum}    \\ \hline
+    \Cellcolor{\headerstrut%
+    Positivt utslag på testen}      &                   &            &          \\ \hline
+    \Cellcolor{\headerstrut%
+    Ikke positivt utslag på testen} &                   &            &          \\ \hline
+    \Cellcolor{\headerstrut%
+    Sum}                            &                   &            &\num{1000}\\ \hline
+  \end{tabular}
+\end{table}
+
+\begin{oppgaver}
+  \Item{1} Bestem sannsynligheten for at en person som er trukket ut, ikke har
+  denne sykdommen
+\end{oppgaver}
+
+\begin{oppgaver}
+  \Item{1} Bestem sannsynligheten for at en person som er trukket ut, får
+  positivt utslag på testen.
+\end{oppgaver}
+
+Tenk deg at en person som er trukket ut, får positivt utslag på testen.
+
+\begin{oppgaver}
+  \Item{2} Bestem sannsynligheten for at denne personen virkelig har sykdommen.
+\end{oppgaver}
+
+
+%==============================================================================%
+%                                 OPPGAVE 2.5                                  %
+%==============================================================================%
+\Oppgave[8]
+
+\begin{figure}[H]
+  \centering
+  \tikzsetnextfilename{Forkurs-1p-2p-laererutdanning-2018-V-U-oppgave-2-5}
+  \begin{tikzpicture}[scale=0.25]
+    \tkzInit[xmin=-7,xmax=40.5,ymin=-0.5,ymax=29.75]
+    \tkzClip
+
+    \def\height{24}
+    \def\width{40}
+    \def\sides{3}
+    \def\textSpace{5}
+
+    \tkzDefPoint(-\textSpace,0){u}\tkzDefPoint(-\textSpace,\height){v}
+    \tkzDefPoint(0,\textSpace+\height){w}\tkzDefPoint(\width,\textSpace+\height){z}
+
+    \tkzDefPoint(0,0){A}\tkzDefPoint(\width,0){B}
+    \tkzDefPoint(\width,\height){C}\tkzDefPoint(0,\height){D}
+
+    \tkzDefPoint(\sides,\sides){a}\tkzDefPoint(\width-\sides,\sides){b}
+    \tkzDefPoint(\width-\sides,\height-\sides){c}\tkzDefPoint(\sides,\height-\sides){d}
+
+    \tkzDrawSegments[|-|](u,v w,z)
+
+    \draw[thick,color=maincolorMedium] (A) rectangle (a);
+    \draw[thick,color=maincolorMedium] (B) rectangle (b);
+    \draw[thick,color=maincolorMedium] (C) rectangle (c);
+    \draw[thick,color=maincolorMedium] (D) rectangle (d);
+
+    \tkzDrawPolygon[dashed,thick,maincolorMedium](a,b,c,d)
+    \tkzDrawPolygon[thick,maincolorMedium](A,B,C,D)
+
+    \midlabelline{w}{z}{$\SI{\width}{\cm}$}
+    \midlabelline{u}{v}{$\SI{\height}{\cm}$}
+  \end{tikzpicture}
+  \caption{}
+  \label{fig:Forkurs-1p-2p-laererutdanning-2018-V-U-oppgave-2-5}
+\end{figure}
+
+Tenk deg at du skal lage en eske av en papplate. Papplaten har form som et
+rektangel med lengde $\SI{40}{\cm}$ og bredde $\SI{24}{\cm}$. For å lage esken
+skal du klippe bort et kvadrat i hvert hjørne av papplaten og brette langs de
+stiplede linjene. Se
+\cref{fig:Forkurs-1p-2p-laererutdanning-2018-V-U-oppgave-2-5} ovenfor.
+
+\begin{oppgaver}
+  \Item{2} Bestem volumet av esken dersom sidene i kvadratene du klipper bort,
+  er $\SI{3}{\cm}$.
+\end{oppgaver}
+
+Sett lengden av sidene i kvadratene du klipper bort, lik $x~\si{\cm}$.
+
+\begin{oppgaver}
+  \Item{2} Vis at volumet $V(x)~\si{\cm\cubed}$ av esken da kan skrives som
+    %
+    \begin{equation*}
+      V(x) = 4x^3 - 128x^2 + 960x
+    \end{equation*}
+    %
+    og forklar at $0 < x < 12$.
+\end{oppgaver}
+
+\begin{oppgaver}
+  \Item{2} Bruk graftegner til å tegne grafen til $V$.
+\end{oppgaver}
+
+\begin{oppgaver}
+  \Item{2} Hvor store må sidene i kvadratene du klipper bort, være for at esken
+    skal få størst mulig volum? Hvor stort volum får esken da?
+\end{oppgaver}
+
+
+%==============================================================================%
+%                                 OPPGAVE 2.6                                  %
+%==============================================================================%
+\Oppgave[6]
+
+Miriam har fått en infeksjon og skal ta tabletter med et virkestoff mot
+infeksjonen. Én tablett inneholder $\SI{120}{\milli\gram}$ virkestoff. Vi antar
+at antall milligram virkestoff i kroppen reduseres med $\SI{3}{\percent}$ hver
+time.
+
+\begin{oppgaver}
+  \Item{1} Hvor mange milligram av virkestoffet vil være igjen i kroppen én time
+    etter at Miriam har tatt den første tabletten?
+\end{oppgaver}
+
+\begin{oppgaver}
+  \Item{1} Hvor mange milligram av virkestoffet vil være igjen i kroppen
+    $10$~timer etter at Miriam har tatt den første tabletten?
+\end{oppgaver}
+
+Miriam skal ta én tablett hver $12$. time i $14$ døgn.
+
+\begin{oppgaver}
+  \Item{2} Lag et regneark som viser hvor mange milligram av virkestoffet hun
+    vil ha i kroppen rett før og rett etter at hun tar en ny tablett disse $14$
+    døgnene.
+\end{oppgaver}
+
+\begin{oppgaver}
+  \Item{2} Hva er laveste og høyeste antall milligram Miriam vil ha i kroppen i
+    perioden fra hun har tatt den første tabletten, til rett etter at hun har
+    tatt den siste?
+\end{oppgaver}

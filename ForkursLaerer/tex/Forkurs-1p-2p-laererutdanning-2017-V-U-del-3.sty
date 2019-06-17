@@ -1,0 +1,27 @@
+%          _\|/_
+%          (o o)
+%  +----oOO-{_}-OOo----------------------+
+%  |                                     |
+%  |          FORKURS H2017 STY          |
+%  |                                     |
+%  +-------------------------------------+
+
+\newcommand{\ballgolf}[1]{%
+  \begin{tikzpicture}[scale=0.75]
+    \tkzDefPoint(1,-1){S1}
+    \tkzDefPoint(#1*2+1,-1){S2}
+    \foreach \i in {1,...,#1}{%
+      \tkzDefPoint(2*\i,0){O\i}
+      \tkzDrawCircle[R,thick,color=maincolorMedium](O\i,1cm)
+    \tkzDrawCircle[R,thick,color=maincolorDark,fill=maincolorDark](O\i,0.025cm)}
+    \ifnum #1=1 \else
+      \foreach \j [evaluate=\j as \j ] in {#1-1,...-1,2-1}{%
+        \foreach \i in {1,...,\j}{%
+          \tkzDefShiftPoint[O\i](60:2){O\i}
+          \tkzDrawCircle[R,thick,color=maincolorMedium](O\i,1cm)
+          \tkzDrawCircle[R,thick,color=maincolorDark,fill=maincolorDark](O\i,0.025cm)
+        }%
+      }%
+    \fi
+  \end{tikzpicture}%
+}

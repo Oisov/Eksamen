@@ -1,0 +1,52 @@
+%          _\|/_
+%          (o o)
+%  +----oOO-{_}-OOo----------------------+
+%  |                                     |
+%  |          FORKURS V2016 STY          |
+%  |                                     |
+%  +-------------------------------------*
+
+\definecolor{stickBlue}{HTML}{0099ff}
+\definecolor{stickRed}{HTML}{ff0033}
+
+\tikzset{%
+  pics/staircase/.style={code={
+      \draw[myline,mydash] (-0.5*#1,-0.5*#1) -| (0.5*#1,0.5*#1);
+      \foreach \XX in {1,...,#1}
+      {\draw[myline,mydash] (-0.5*#1+\XX-1,-0.5*#1+\XX-1) |- ++ (1,1);
+        \ifnum\XX<#1
+          \draw[myline,mydash,stickRed] (-0.5*#1+\XX,-0.5*#1) -- ++ (0,\XX);
+          \draw[myline,mydash,stickBlue] (0.5*#1,0.5*#1-\XX) -- ++ (-\XX,0);
+        \fi
+      }
+    }
+  },
+  pics/staircaseSum/.style={code={
+      \foreach \XX in {1,...,#1}
+      {\foreach \YY in {1,...,#1}
+        {
+          \ifnum\XX<\YY
+            \draw[myline,stickBlue] (\XX-1,\YY-2) -- (\XX-1,\YY-1);
+          \fi
+          \ifnum\XX>\YY
+            \draw[myline,stickRed] (\XX-1,\YY-1) -- (\XX-1, \YY);
+          \fi
+        }
+      }
+    }
+  },
+  myline/.style={ultra thick,shorten <=1.5mm},
+  mydash/.style={dash pattern=on 8mm off 2mm},
+}
+
+\newcommand{\staircase}[1]{%
+  \begin{tikzpicture}
+    \path (0,0) pic{staircase=#1};
+  \end{tikzpicture}
+}
+
+\newcommand{\staircaseSum}[1]{%
+  \begin{tikzpicture}
+    \path (0,0) pic{staircaseSum=#1};
+  \end{tikzpicture}
+}

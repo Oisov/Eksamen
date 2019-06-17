@@ -6,6 +6,7 @@
 %  |                                     |
 %  +-------------------------------------+
 
+\usepackage{adjustbox,hhline}
 \usetikzlibrary{shapes}
 
 \newcommand{\polygons}[1]{
@@ -41,3 +42,47 @@
     \end{scope}
   \end{tikzpicture}
 }
+%==============================================================================%
+%                               SPREADSHEET CODE                               %
+%==============================================================================%
+
+\definecolor{darkGray}{HTML}{e6e6e6}
+\definecolor{lightGray}{HTML}{f2f2f2}
+
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+
+\newcommand{\borderColor}{darkGray}
+\newcommand{\tableColor}{lightGray}
+
+\setlength{\extrarowheight}{1pt}
+
+\newcounter{rowcounter}
+
+\newcommand{\tableTitle}{\multicolumn{7}{l|}{\cellcolor{\tableColor}\large\bfseries Feriepenger \rule{0pt}{4ex}}}
+
+\newcommand{\whiteAndColorRows}{%
+  & & & & &
+  \cellcolor{maincolorLight} &%
+  \cellcolor{maincolorLight} &%
+  \cellcolor{maincolorLight} &%
+  \cellcolor{maincolorLight}
+}
+
+\newcommand{\tableLong}[1]{\multicolumn{5}{l|}{\cellcolor{\tableColor}\bfseries #1 \rule{0pt}{4ex}}}
+\newcommand{\blix}[1]{\multicolumn{9}{l|}{\cellcolor{\tableColor}#1}}
+\newcommand{\blviii}[1]{\multicolumn{8}{l|}{\cellcolor{\tableColor}#1}}
+\newcommand{\blvii}[1]{\multicolumn{7}{l|}{\cellcolor{\tableColor}#1}}
+\newcommand{\blvi}[1]{\multicolumn{6}{l|}{\cellcolor{\tableColor}#1}}
+\newcommand{\blv}[1]{\multicolumn{5}{l|}{\cellcolor{\tableColor}#1}}
+\newcommand{\bliv}[1]{\multicolumn{4}{l|}{\cellcolor{\tableColor}#1}}
+\newcommand{\bliii}{\multicolumn{3}{l|}{\cellcolor{\tableColor}}}
+\newcommand{\blii}{\multicolumn{2}{l|}{\cellcolor{\tableColor}}}
+\newcommand{\mig}[1]{\multicolumn{1}{l}{\cellcolor{\tableColor}\textbf{#1}}}
+\newcommand{\mcdg}[1]{\multicolumn{1}{c|}{\cellcolor{\borderColor}#1}}
+\newcommand{\midg}[1]{\multicolumn{1}{|c|}{\cellcolor{\borderColor}#1}}
+
+\newcommand{\midc}{\multicolumn{1}{|c|}{\cellcolor{\borderColor}\stepcounter{rowcounter}\arabic{rowcounter}}}
+
+\newcommand{\dgr}{\cellcolor{\borderColor}}
+\newcommand{\lgr}{\cellcolor{\tableColor}}
+
