@@ -38,6 +38,7 @@
 \usetkzobj{all}
 \usepackage{tikzpagenodes}
 
+\usetikzlibrary{fit}
 \usetikzlibrary{external}
     \tikzexternalize[
         % Because I think it is good practice to give your to externalize
@@ -72,7 +73,7 @@
 
 \usepackage{lipsum}
 
-\usepackage[norsk]{babel}
+\usepackage[english,norsk]{babel}
 \usepackage[autostyle,
       norwegian=guillemets,
       strict=true]{csquotes}
@@ -106,8 +107,9 @@
 \newcounter{totalt}
 \newcounter{totalt1}
 
-\newcounter{side} \setcounter{side}{1}
+\newcounter{side}       \setcounter{side}{1}
 \newcounter{alfa}[prob] \setcounter{alfa}{1}
+\newcounter{arab}[alfa] \setcounter{arab}{1}
 
 \newcounter{total_points_del_1}
 \setcounter{total_points_del_1}{0}
@@ -115,6 +117,9 @@
 \setcounter{total_points_del_2}{0}
 \newcounter{total_points_del_1_and_del_2}
 \setcounter{total_points_del_1_and_del_2}{0}
+
+\providetoggle{isLF}     \settoggle{isLF}{true}
+\providetoggle{isSensur} \settoggle{isSensur}{true}
 
 %==============================================================================%
 %                                    COLORS                                    %
@@ -135,7 +140,7 @@
 }
 
 \definecolor{lghtGray}{HTML}{e4e1dc}
-\definecolor{lghtGrayText}{HTML}{a8a399}
+\definecolor{lghtGrayText}{HTML}{887f6f}
 
 \definecolor{basementOrange}{HTML}{f19502}
 
@@ -155,6 +160,16 @@
 \newcolumntype{C}{>{\columncolor[HTML]{\maincolor}}c}
 \newcolumntype{R}{>{\columncolor[HTML]{\maincolor}}r}
 
+\newcolumntype{N}{>{$}l<{$}}
+\newcolumntype{M}{>{$}c<{$}}
+\newcolumntype{O}{>{$}r<{$}}
+
+\usepackage{array}
+
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{q}[1]{>{\raggedleft\arraybackslash}p{#1}}
+\newcolumntype{Q}[1]{>{\centering\arraybackslash$}m{#1}<{$}}
+
 \newcommand{\Rowcolor}{\rowcolor{\maincolor}}
 \newcommand{\Cellcolor}{\cellcolor{\maincolor}}
 \newcommand{\headerstrut}{\vphantom{$\bigg|$}}
@@ -164,6 +179,13 @@
 \newcommand{\tableHeaders}[2]{\hline%
   \Rowcolor {#1\headerstrut} & {#2} \\ \hline%
 }
+
+%==============================================================================%
+%                                     MISC                                     %
+%==============================================================================%
+
+\newcommand{\EksamenNewpage}{\iftoggle{isLF}{}{\newpage}}
+\newcommand{\isLFNewpage}{\iftoggle{isLF}{\newpage}{}}
 
 
 %==============================================================================%
@@ -179,7 +201,7 @@
   \renewcommand{\footrulewidth}{0.4pt}% Default \footrulewidth is 0pt
   %
   \lhead{ Øistein Søvik }
-  \chead{   \ifthenelse{\equal{\isLosningforslag}{True}}{Løsningsforslag -- }{}%
+  \chead{   \iftoggle{isLF}{Løsningsforslag -- }{}%
   \ifthenelse{\arabic{tittel}<1}{}{Del \arabic{tittel}}  }
   \rhead{ \Labelfire }
   %
@@ -206,24 +228,29 @@
 \newcommand{\headerImg}[2]{
   \pgfmathsetmacro{\myscale}{\textwidth/18.85cm}%
   \begin{tikzpicture}[nodes={inner sep=0pt,outer sep=0pt},scale=\myscale]
-    \fill[maincolorDark]  (0,0) rectangle (18.85,3.25);
+    \coordinate (dm1) at (0,0); \coordinate (dm2) at (18.85,3.25);
+    \fill[maincolorDark]  (dm1) rectangle (dm2);
     \fill[maincolorLight] (10,0) to[out=14,in=-140] (17.32,3.25)--
     (17.6,3.25) to[out=-140,in=15] (11.7,0) -- cycle;
     \fill[maincolorMedium] (17.6,3.25) to[out=-140,in=15] (11.7,0) -| (18.85,3.25) -- cycle;
-    \node[anchor=south west,text=white,font=\bfseries,scale=3*\myscale] at (0.5,0.75){#1};
-    \node[anchor=south east,text=white,font=\bfseries,scale=2*\myscale] at (18.5,0.4){#2};
+    \node[anchor=south east,text=white,font=\bfseries,scale=2*\myscale] at
+      (18.5,0.4){#2};
+    \node[rectangle,minimum width=2cm,align=left] [fit = (dm1) (dm2)] (bx4) {};
+    \node[align=left,text width=6cm,text=white,font=\bfseries,scale=3*\myscale] at (bx4.center) {#1};
   \end{tikzpicture}
 }
 
 \newcommand{\headerInfo}[3]{
   \pgfmathsetmacro{\myscale}{\textwidth/18.85cm}%
   \begin{tikzpicture}[nodes={inner sep=0pt,outer sep=0pt},scale=\myscale]
-    \fill[#3]  (0,0) rectangle (18.85,3.25);
-    \node[anchor=south west,text=lghtGrayText,align=left,scale=#2*\myscale] at (0.5,1.25){#1};
+    \coordinate (dm1) at (0,0); \coordinate (dm2) at (18.85,3.25);
+    \fill[#3] (dm1) rectangle (dm2);
+    \node[rectangle,minimum width=2cm,align=left] [fit = (dm1) (dm2)] (bx4) {};
+    \node[align=left,text=lghtGrayText,text width=11.85cm,scale=#2*\myscale] at (bx4.center) {#1};
   \end{tikzpicture}
 }
 
-\newcommand{\headerLF}{
+\newcommand{\headerisLF}{
   \pgfmathsetmacro{\myscale}{\textwidth/18.85cm}%
   \begin{tikzpicture}[nodes={inner sep=0pt,outer sep=0pt},scale=\myscale]
     \fill[basementOrange]  (0,0) rectangle (18.85,3.25);
@@ -232,9 +259,20 @@
   \end{tikzpicture}
 }
 
+
 \newcommand{\makeLower}[1]{\begingroup\protected@edef\x{\endgroup\protect\MakeLowercase{#1}}\x}
 
-\NewDocumentCommand{\Eksamen}{m m m m m O{O}}{%
+% \Eksamen {T, S, R, P, U, F}
+%          {1, 2}          1T, R1, 2P, 1P, S1, S2 usw
+%          {H, V, or Høst} Semester
+%          {Date}
+%          {Year}
+%          [U, E]           [U]tsatt(delayed) [E]ksempel(example)
+%          [F]              No forhåndssensur
+
+% Høst viser karakterfordeling og forhåndssensur, merk
+% Dette er vanligvis ikke inkludert for høsten
+\NewDocumentCommand{\Eksamen}{m m m m m O{O} O{Sensur}}{%
   \def\Year{#5}
   \pagenumbering{roman}
   \pagestyle{plain}
@@ -245,7 +283,7 @@
       \definecolor{maincolorMedium}{HTML}{a757b2}%
       \definecolor{maincolorDark}{HTML}{9637a0}%
       \newcommand{\maincolor}{F}\def\Label{1P + 2P}%
-    \def\Labeltre{\small Matematikk 1P og 2P Forkurs Lærerutdanningene  }}%
+    \def\Labeltre{\footnotesize Matematikk 1P og 2P Forkurs Lærerutdanningene  }}%
     {U}{\newcommand{\maincolor}{U}\def\Label{}%
     \def\Labeltre{MAT0010 Matematikk}}%
     {P}{\newcommand{\maincolor}{P}\def\Label{$#2$P}%
@@ -261,6 +299,7 @@
       \def\Labeltre{\ifthenelse{\equal{#2}{2}}{REA2028 Matematikk S2}{%
     \ifthenelse{\equal{#2}{1}}{REA2026 Matematikk S1}{} }}}%
   }{}%
+
   \IfStrEqCase{#3}{%
     {H}{\def\Labelto{ Høst } \def\Labelfire{Høsten \Year} \refstepcounter{host}}%
     {V}{\def\Labelto{ Vår } \def\Labelfire{Våren \Year}}%
@@ -269,24 +308,33 @@
   \IfStrEqCase{#6}{%
     {O}{\def\ExamOrProveText{\eksamenOrProve}}%
     {U}{\def\ExamOrProveText{Utsatt~\eksamenOrProve}}%
+    {E}{\def\ExamOrProveText{Eksempeloppgave}%
+      \definecolor{maincolorLight}{HTML}{C5DAA4}%
+      \definecolor{maincolorMedium}{HTML}{A1CA64}%
+      \definecolor{maincolorDark}{HTML}{86BF3E}%
+      \renewcommand{\maincolor}{maincolorLight}%
+    }%
   }[\def\ExamOrProveText{\eksamenOrProve}]
+
+  \IfStrEqCase{#7}{%
+    {ingenSensur}{\settoggle{isSensur}{false}}%
+    {Sensur}{}%
+  }[]%
 
   \headerImg{\ExamOrProveText}{#4}
 
-  \medskip
+  \vspace{-0.3cm}
 
   \IfStrEqCase{#1}{%
     {F}{%
-      \headerInfo{Sentralt gitt skriftleg prøve i matematikk 1P og 2P \\
-      etter forkurs i lærarutdanningane}{1.5}{lghtGray}%
+      \headerInfo{Sentralt gitt skriftlig prøve i matematikk 1P og 2P \\
+      etter forkurs i lærarutdanningene}{1.5}{lghtGray}%
     }%
   }[\headerInfo{\Labeltre}{2}{lghtGray}]
 
-  \ifthenelse{\equal{\isLosningforslag}{True}}
-  {\medskip\headerLF}
-  {}%
+  \iftoggle{isLF}{\medskip\headerisLF}{}%
 
-  \stepcounter{page}\newpage
+  \stepcounter{page}
   \AtEndDocument{%
     \noindent\pagestyle{empty}%
     \pgfmathsetmacro{\myscale}{\textwidth/18.85cm}%
@@ -300,6 +348,29 @@
     \clearpage
   }
 }
+
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{lipsum}
+\mdfdefinestyle{nyEksamensordning}{%
+    linecolor=none,
+    outerlinewidth=1pt,
+    roundcorner=0pt,
+    innertopmargin=\baselineskip,
+    innerbottommargin=\baselineskip,
+    innerrightmargin=20pt,
+    innerleftmargin=20pt,
+    backgroundcolor=maincolorLight}
+
+\mdfdefinestyle{flerePoeng}{%
+    linecolor=blue,
+    outerlinewidth=2pt,
+    roundcorner=20pt,
+    innertopmargin=\baselineskip,
+    innerbottommargin=\baselineskip,
+    innerrightmargin=20pt,
+    innerleftmargin=20pt,
+    backgroundcolor=gray!50!white}
+
 
 %==============================================================================%
 %                     EXAM INFORMATION (PAGE 2)                                %
@@ -362,9 +433,9 @@
 %==============================================================================%
 
 \newcommand{\TOC}{
-\hypersetup{linkcolor= black}
-\begingroup\linespread{1.25}
-\tableofcontents
+  \hypersetup{linkcolor= black}
+  \begingroup\linespread{1.25}
+  \tableofcontents
 \endgroup}
 
 %%% Center every god damn figure
@@ -501,7 +572,8 @@
 }
 
 \newcommand{\Item}[1]{%
-  \item\points{#1}
+  \item
+  \iftoggle{isSensur}{\points{#1}}{}
 }
 
 \newcommand{\losninglabel}{%
@@ -532,11 +604,25 @@
   itemsep=0.7cm%
 }
 
+\newlist{deldeloppgaver}{enumerate}{1}
+\setlist[deldeloppgaver, 1]{%
+  label=\textbf{\arabic{arab})}
+}
+
 \newenvironment{oppgaver}{%
   \begin{deloppgaver}
     \let\@item\myspecial@item
 }{%
   \end{deloppgaver}
+}
+
+\newenvironment{oppgaverI}{%
+  \refstepcounter{arab}
+  \begin{deldeloppgaver}
+    \let\@item\org@item
+}{%
+  \end{deldeloppgaver}
+  \let\@item\myspecial@item
 }
 
 \makeatother
@@ -552,7 +638,21 @@
    {\setcounter{alternative}{0}\refstepcounter{prob}\firstaltfalse}%
   \section*{Oppgave~\arabic{prob}~%
     {\normalfont\IfBooleanTF{#1}{Alternativ~\Roman{alternative}~}{}}%
-                \IfNoValueTF{#2}{}{\normalfont\normalsize(#2~poeng)}}%
+                \IfNoValueTF{#2}{}{\normalfont\normalsize(#2~poeng)%
+                  \nottoggle{isSensur}{\points*{#2}}{}
+              }}%
+   \addcontentsline{toc}{section}{Oppgave~\arabic{prob}}
+   \label{del-\arabic{tittel}-oppgave-\arabic{prob}}
+}
+
+\NewDocumentCommand{\oppgave}{s o}{
+\addvspace{0.05\textheight} \needspace{.3\textheight}  %
+  \IfBooleanTF{#1}%
+   {\stepcounter{alternative}\iffirstalt\else\refstepcounter{prob}\firstalttrue\fi}%
+   {\setcounter{alternative}{0}\refstepcounter{prob}\firstaltfalse}%
+  \section*{Oppgave~\arabic{prob}~%
+    {\normalfont\IfBooleanTF{#1}{Alternativ~\Roman{alternative}~}{}}%
+                \IfNoValueTF{#2}{}{\normalfont\normalsize(#2~poeng)\points*{#2}}}%
    \addcontentsline{toc}{section}{Oppgave~\arabic{prob}}
    \label{del-\arabic{tittel}-oppgave-\arabic{prob}}
 }
@@ -614,7 +714,7 @@
   \hypersetup{linkcolor=black}}{}
   \setcounter{side}{\arabic{page}}
   \thispagestyle{withoutFooter}
-  \ifthenelse{\equal{\isLosningforslag}{True}}{\color{\colorNotLosning}}{}
+  \iftoggle{isLF}{\color{\colorNotLosning}}{}
   \phantomsection
   \IfBooleanTF#1{\addtocontents{toc}{\protect\pagebreak}}{}
   \addcontentsline{toc}{part}{%
@@ -634,13 +734,12 @@
 \specialcomment{losninger}
     {\color{black}}{\color{\colorNotLosning}}
 
-\def\isLosningforslag{True}
 \newcommand{\losningsforslag}[1]{
   \ifthenelse{\equal{#1}{False}}
-  {\def\isLosningforslag{False}%
+  {\settoggle{isLF}{false}
     \excludecomment{losninger}\excludecomment{Kortesvar}%
   }
-  {\def\isLosningforslag{True}
+  {\settoggle{isLF}{true}
   }%
 }
 
